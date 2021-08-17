@@ -88,8 +88,8 @@
         return htmlspecialchars($str, ENT_QUOTES, 'UTF-8');
       }
     ?>
-    <!-- ここから！！！ -->
-    
+    <!-- ここから ！！！ -->
+
     <!-- アンケート回答の確認表示 -->
     <form method="POST" action="submit.php">
       <table border="1">
