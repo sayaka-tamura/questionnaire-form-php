@@ -52,7 +52,7 @@
       $fclose($fp);
 
       if($return){
-        $result_message = "Thank you for your answer!"
+        $result_message = "Thank you for your answer!";
       }else{
         $result_message = "Error!!";
       }
