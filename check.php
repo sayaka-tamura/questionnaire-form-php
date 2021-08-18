@@ -88,86 +88,64 @@
         return htmlspecialchars($str, ENT_QUOTES, 'UTF-8');
       }
     ?>
-    <!-- ここから ！！！ -->
 
     <!-- アンケート回答の確認表示 -->
     <form method="POST" action="submit.php">
       <table border="1">
         <tr>
           <td>Name</td>
-          <td><input type="text" name="uname" size="50"></td>
+          <td><?php echo $uname ?></td>
         </tr>
         <tr>
           <td>E-mail</td>
-          <td><input type="text" name="email" size="50"></td>
+          <td><?php echo $email ?></td>
         </tr>
         <tr>
           <td>Gender</td>
-          <td>
-            <input type="radio" name="gender" value="Male">
-            <input type="radio" name="gender" value="Female">
-          </td>
+          <td><?php echo $gender ?></td>
         </tr>
         <tr>
           <td>Occupation</td>
-          <td>
-            <select name="job">
-              <option value="">▼ Select</option>
-              <option>Student</option>
-              <option>Company employee</option>
-              <option>Public official</option>
-              <option>Self-employed</option>
-              <option>Others</option>
-            </select>
-          </td>
+          <td><?php echo $job ?></td>
         </tr>
         <tr>
           <td>How satisfied are you with the books?</td>
-          <td>
-          <?php
-          // 配列からラジオボタンを作成する
-            $ar_rate = array(
-              "5" => "Very Satisfied",
-              "4" => "Satisfied",
-              "3" => "Normal",
-              "2" => "Unsatisfied",
-              "1" => "Very Unsatisfied",
-            );
-
-            foreach($ar_rate as $key=>$value){
-              echo "<input type=\"radio\" name=\"rate1\" value=\"{$key}\">{$value}";
-            }
-          ?>
-          </td>
+          <td><?php echo $ar_rate[$rate1] ?></td>
+        </tr>
+        <tr>
+          <td>How about the book volume?</td>
+          <td><?php echo $ar_rate[$rate2] ?></td>
         </tr>
         <tr>
           <td>Programming languages that you have a experience</td>
-          <td>
-            <input type="checkbox" name="tec[]" value="PHP">PHP
-            <input type="checkbox" name="tec[]" value="Java">Java
-            <input type="checkbox" name="tec[]" value="Ruby">Ruby
-            <input type="checkbox" name="tec[]" value="C#">C#
-            <input type="checkbox" name="tec[]" value="Perl">Perl
-          </td>
+          <td><?php echo $tec ?></td>
         </tr>
         <tr>
           <td>New Publication Information</td>
-          <td>
-            <input type="checkbox" name="dm" checked>Please send me the information
-          </td>
+          <td><?php echo $dm ?></td>
         </tr>
         <tr>
           <td>Book Reviews</td>
-          <td>
-            <textarea name="message" cols="40" rows="5"></textarea>
-          </td>
+          <td><?php echo nl2br($message) ?></td>
         </tr>
         <tr>
           <td align="right" colspan="2">
-            <input type="submit" value="confirm" name="sub1">
+            <input type="submit" value="Submit Answer" name="sub1">
           </td>
         </tr>
       </table>
+
+      <!-- Hidden Field -->
+      <!-- ここから ！！！ -->
+      <input type="hidden" name="uname" value="<?php echo $uname; ?>">
+      <input type="hidden" name="email" value="<?php echo $email; ?>">
+      <input type="hidden" name="gender" value="<?php echo $gender; ?>">
+      <input type="hidden" name="job" value="<?php echo $job; ?>">
+      <input type="hidden" name="rate1" value="<?php echo $rate1; ?>">
+      <input type="hidden" name="rate2" value="<?php echo $rate2; ?>">
+      <input type="hidden" name="tec" value="<?php echo $tec; ?>">
+      <input type="hidden" name="dm" value="<?php echo $dm; ?>">
+      <input type="hidden" name="message" value="<?php echo $message; ?>">
     </form>
   </body>
 </html>
