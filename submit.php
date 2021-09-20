@@ -7,12 +7,11 @@
 ?>
 
 <html>
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Questionary</title>
-  </head>
+
+  <?php require("template/head.php"); ?>
+  
   <body>
-    <h1>Questionary (3. Answer Completion Screen)</h1>
+    <h1>Questionary</h1>
         <!-- 処理結果を表示 -->
 
     <?php

@@ -15,12 +15,11 @@
 ?>
 
 <html>
-  <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>Questionary</title>
-  </head>
+
+  <?php require("template/head.php"); ?>
+  
   <body>
-    <h1>Questionary (2. Answer Confirmation Screen)</h1>
+    <h1>Questionary</h1>
     <p>Please Confirm Your Answer</p>
     
     <?php

@@ -3,7 +3,7 @@
   <?php require("template/head.php"); ?>
 
   <body>
-    <h1>Questionary (1. Answer Screen)</h1>
+    <h1>Questionary</h1>
     <p>Click "Confirm" button after answering questionary</p>
     <form method="POST" action="check.php">
       <table border="1">
