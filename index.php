@@ -38,7 +38,8 @@
               <span class="focus-input3"></span>
             </div>
 
-            <div class="wrap-input3 input3-select">
+            <!-- <div class="wrap-input3 input3-select"> -->
+            <div class="wrap-input3">
               <div>
                 <select class="selection-2" name="job">
                   <option>Occupation</option>
@@ -67,7 +68,8 @@
                   );
 
                   foreach($ar_rate as $key=>$value){
-                    echo "<input type=\"radio\" name=\"rate1\" value=\"{$key}\" id=\"radio2\" class=\"input-radio3\">{$value}";
+                    /* echo "<input type=\"radio\" name=\"rate1\" value=\"{$key}\" id=\"radio2\" class=\"input-radio3\">{$value}"; */
+                    echo "<input type=\"radio\" name=\"rate1\" value=\"{$key}\" id=\"radio2\">{$value}";
                     echo "<label class=\"input-radio3\" for=\"radio2\">".$value."</label>";
                   }
                 ?>
