@@ -64,7 +64,7 @@
 
                   foreach($ar_rate as $key=>$value){
                     echo "<input type=\"radio\" name=\"rate1\" value=\"{$key}\" id=\"radio2\" class=\"input-radio3\">{$value}";
-                    echo "<label class=\"input-radio3\" for=\"radio2\">{$value}</label>";
+                    echo "<label class=\"input-radio3\" for=\"radio2\">".$value."</label>";
                   }
                 ?>
                 </div>
