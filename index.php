@@ -32,10 +32,12 @@
               <input class="input3" type="text" name="name" placeholder="Your Name">
               <span class="focus-input3"></span>
             </div>
+
             <div class="wrap-input3 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
               <input class="input3" type="text" name="email" placeholder="Your Email">
               <span class="focus-input3"></span>
             </div>
+
             <div class="wrap-input3 input3-select">
               <div>
                 <select class="selection-2" name="job">
@@ -46,8 +48,10 @@
                   <option>Self-employed</option>
                   <option>Others</option>
                 </select>
-                <span class="focus-input3"></span>
               </div>
+              <span class="focus-input3"></span>
+            </div>
+            
             <div class="wrap-contact3-form-radio">
               <div class="contact3-form-radio m-r-42">
               <div>How satisfied are you with the books?</div>
