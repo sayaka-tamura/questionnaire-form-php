@@ -17,7 +17,7 @@
 <html>
 
   <?php require("template/head.php"); ?>
-  
+
   <body>
     <h1>Questionary</h1>
     <p>Please Confirm Your Answer</p>
@@ -145,5 +145,8 @@
       <input type="hidden" name="dm" value="<?php echo $dm; ?>">
       <input type="hidden" name="message" value="<?php echo $message; ?>">
     </form>
+
+    <?php require("template/footer.php"); ?>
+    
   </body>
 </html>

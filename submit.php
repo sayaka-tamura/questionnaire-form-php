@@ -9,7 +9,7 @@
 <html>
 
   <?php require("template/head.php"); ?>
-  
+
   <body>
     <h1>Questionary</h1>
         <!-- 処理結果を表示 -->
@@ -58,5 +58,8 @@
     ?>
 
     <p><?php echo $result_message; ?></p>
+
+    <?php require("template/footer.php"); ?>
+    
   </body>
 </html>

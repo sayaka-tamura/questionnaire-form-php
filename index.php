@@ -95,5 +95,7 @@
         </table>
       </form>
     </div>
+
+    <?php require("template/footer.php"); ?>
   </body>
 </html>
