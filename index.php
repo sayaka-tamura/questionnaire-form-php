@@ -32,47 +32,42 @@
               <input class="input3" type="text" name="name" placeholder="Your Name">
               <span class="focus-input3"></span>
             </div>
-            <div>
-              <div>E-mail</div>
-              <div><input type="text" name="email" size="50"></div>
+            <div class="wrap-input3 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+              <input class="input3" type="text" name="email" placeholder="Your Email">
+              <span class="focus-input3"></span>
             </div>
-            <div>
-              <div>Gender</div>
+            <div class="wrap-input3 input3-select">
               <div>
-                <input type="radio" name="gender" value="Male">Male
-                <input type="radio" name="gender" value="Female">Female
-              </div>
-            </div>
-            <div>
-              <div>Occupation</div>
-              <div>
-                <select name="job">
-                  <option value="">▼ Select</option>
+                <select class="selection-2" name="job">
+                  <option>Occupation</option>
                   <option>Student</option>
                   <option>Company employee</option>
                   <option>Public official</option>
                   <option>Self-employed</option>
                   <option>Others</option>
                 </select>
+                <span class="focus-input3"></span>
               </div>
-            </div>
-            <div>
+            <div class="wrap-contact3-form-radio">
+              <div class="contact3-form-radio m-r-42">
               <div>How satisfied are you with the books?</div>
-              <div>
-              <?php
-              // 配列からラジオボタンを作成する
-                $ar_rate = array(
-                  "5" => "Very Satisfied",
-                  "4" => "Satisfied",
-                  "3" => "Normal",
-                  "2" => "Unsatisfied",
-                  "1" => "Very Unsatisfied",
-                );
+                <div>
+                <?php
+                // 配列からラジオボタンを作成する
+                  $ar_rate = array(
+                    "5" => "Very Satisfied",
+                    "4" => "Satisfied",
+                    "3" => "Normal",
+                    "2" => "Unsatisfied",
+                    "1" => "Very Unsatisfied",
+                  );
 
-                foreach($ar_rate as $key=>$value){
-                  echo "<input type=\"radio\" name=\"rate1\" value=\"{$key}\">{$value}";
-                }
-              ?>
+                  foreach($ar_rate as $key=>$value){
+                    echo "<input type=\"radio\" name=\"rate1\" value=\"{$key}\" id=\"radio2\" class=\"input-radio3\">{$value}";
+                    echo "<label class=\"input-radio3\" for=\"radio2\">{$value}</label>";
+                  }
+                ?>
+                </div>
               </div>
             </div>
             <div>
