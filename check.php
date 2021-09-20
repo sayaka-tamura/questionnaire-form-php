@@ -136,7 +136,6 @@
       </table>
 
       <!-- Hidden Field -->
-      <!-- ここから ！！！ -->
       <input type="hidden" name="uname" value="<?php echo $uname; ?>">
       <input type="hidden" name="email" value="<?php echo $email; ?>">
       <input type="hidden" name="gender" value="<?php echo $gender; ?>">

@@ -1,8 +1,7 @@
 <html>
-  <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>Questionary</title>
-  </head>
+
+  <?php require("template/head.php"); ?>
+
   <body>
     <h1>Questionary (1. Answer Screen)</h1>
     <p>Click "Confirm" button after answering questionary</p>
