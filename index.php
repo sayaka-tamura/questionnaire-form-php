@@ -54,7 +54,6 @@
             </div>
 
             <div class="wrap-contact3-form-radio">
-              <div class="contact3-form-radio m-r-42">
               <div>How satisfied are you with the books?</div>
                 <div>
                 <?php
@@ -68,13 +67,14 @@
                   );
 
                   foreach($ar_rate as $key=>$value){
-                    /* echo "<input type=\"radio\" name=\"rate1\" value=\"{$key}\" id=\"radio2\" class=\"input-radio3\">{$value}"; */
-                    echo "<input type=\"radio\" name=\"rate1\" value=\"{$key}\" id=\"radio2\">{$value}";
-                    echo "<label class=\"input-radio3\" for=\"radio2\">".$value."</label>";
+                    echo "<div class=\"contact3-form-radio\">";
+                      /* echo "<input type=\"radio\" name=\"rate1\" value=\"{$key}\" id=\"radio2\" class=\"input-radio3\">{$value}"; */
+                      echo "<input type=\"radio\" name=\"rate1\" value=\"{$key}\" id=\"radio2\">{$value}";
+                      echo "<label class=\"input-radio3\" for=\"radio2\">".$value."</label>";
+                    echo "</div>";
                   }
                 ?>
                 </div>
-              </div>
             </div>
             <div>
               <div>How about the book volume?</div>
@@ -117,7 +117,8 @@
         </div>
       </div>
     </div>
-
+    <div id="dropDownSelect1"></div>
+    
     <?php require("template/footer.php"); ?>
   </body>
 </html>
