@@ -21,7 +21,7 @@
       }
 
       // 入力値の取得
-      $uname = $_POST["uname"];
+      $name = $_POST["name"];
       $email = $_POST["email"];
       $gender = $_POST["gender"];
       $job = $_POST["job"];
@@ -31,7 +31,7 @@
       $dm = $_POST["dm"];
       $message = $_POST["message"];
 
-      $uname = h($uname);
+      $name = h($name);
       $email = h($email);
       $gender = h($gender);
       $job = h($job);
@@ -42,7 +42,7 @@
       $message = h($message);
 
       // 回答を書き込む準備
-      $line = array($uname, $email, $gender, $job, $rate1, $rate2, $tec, $dm, $message);
+      $line = array($name, $email, $gender, $job, $rate1, $rate2, $tec, $dm, $message);
 
       // ファイルへの書き込み
       $file_name = "answer.csv";
@@ -60,6 +60,6 @@
     <p><?php echo $result_message; ?></p>
 
     <?php require("template/footer.php"); ?>
-    
+
   </body>
 </html>

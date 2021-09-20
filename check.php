@@ -23,7 +23,7 @@
     <p>Please Confirm Your Answer</p>
     
     <?php
-      $uname = $_POST["uname"];
+      $name = $_POST["name"];
       $email = $_POST["email"];
       $gender = $_POST["gender"];
       $job = $_POST["job"];
@@ -33,7 +33,7 @@
       $dm = $_POST["dm"];
       $message = $_POST["message"];
 
-      $uname = h($uname);
+      $name = h($name);
       $email = h($email);
       $gender = h($gender);
       $job = h($job);
@@ -41,7 +41,7 @@
       $rate2 = h($rate2);
       $message = h($message);
 
-      if(empty($uname)){
+      if(empty($name)){
         echo "Please type your name";
         exit;
       }
@@ -93,7 +93,7 @@
       <table border="1">
         <tr>
           <td>Name</td>
-          <td><?php echo $uname ?></td>
+          <td><?php echo $name ?></td>
         </tr>
         <tr>
           <td>E-mail</td>
@@ -135,7 +135,7 @@
       </table>
 
       <!-- Hidden Field -->
-      <input type="hidden" name="uname" value="<?php echo $uname; ?>">
+      <input type="hidden" name="name" value="<?php echo $name; ?>">
       <input type="hidden" name="email" value="<?php echo $email; ?>">
       <input type="hidden" name="gender" value="<?php echo $gender; ?>">
       <input type="hidden" name="job" value="<?php echo $job; ?>">
@@ -147,6 +147,6 @@
     </form>
 
     <?php require("template/footer.php"); ?>
-    
+
   </body>
 </html>

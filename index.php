@@ -12,92 +12,106 @@
             </span>
             <p>Click "Confirm" button after answering questionary</p>
 
-            <table border="1">
-              <tr>
-                <td>Name</td>
-                <td><input type="text" name="uname" size="50"></td>
-              </tr>
-              <tr>
-                <td>E-mail</td>
-                <td><input type="text" name="email" size="50"></td>
-              </tr>
-              <tr>
-                <td>Gender</td>
-                <td>
-                  <input type="radio" name="gender" value="Male">Male
-                  <input type="radio" name="gender" value="Female">Female
-                </td>
-              </tr>
-              <tr>
-                <td>Occupation</td>
-                <td>
-                  <select name="job">
-                    <option value="">▼ Select</option>
-                    <option>Student</option>
-                    <option>Company employee</option>
-                    <option>Public official</option>
-                    <option>Self-employed</option>
-                    <option>Others</option>
-                  </select>
-                </td>
-              </tr>
-              <tr>
-                <td>How satisfied are you with the books?</td>
-                <td>
-                <?php
-                // 配列からラジオボタンを作成する
-                  $ar_rate = array(
-                    "5" => "Very Satisfied",
-                    "4" => "Satisfied",
-                    "3" => "Normal",
-                    "2" => "Unsatisfied",
-                    "1" => "Very Unsatisfied",
-                  );
+            <div class="wrap-contact3-form-radio">
+              <div class="contact3-form-radio m-r-42">
+                <input class="input-radio3" id="radio1" type="radio" name="choice" value="say-hi" checked="checked">
+                <label class="label-radio3" for="radio1">
+                  Say Hi
+                </label>
+              </div>
 
-                  foreach($ar_rate as $key=>$value){
-                    echo "<input type=\"radio\" name=\"rate1\" value=\"{$key}\">{$value}";
-                  }
+              <div class="contact3-form-radio">
+                <input class="input-radio3" id="radio2" type="radio" name="choice" value="get-quote">
+                <label class="label-radio3" for="radio2">
+                  Respond to a survey
+                </label>
+              </div>
+            </div>
+
+            <div class="wrap-input3 validate-input" data-validate="Name is required">
+              <input class="input3" type="text" name="name" placeholder="Your Name">
+              <span class="focus-input3"></span>
+            </div>
+            <div>
+              <div>E-mail</div>
+              <div><input type="text" name="email" size="50"></div>
+            </div>
+            <div>
+              <div>Gender</div>
+              <div>
+                <input type="radio" name="gender" value="Male">Male
+                <input type="radio" name="gender" value="Female">Female
+              </div>
+            </div>
+            <div>
+              <div>Occupation</div>
+              <div>
+                <select name="job">
+                  <option value="">▼ Select</option>
+                  <option>Student</option>
+                  <option>Company employee</option>
+                  <option>Public official</option>
+                  <option>Self-employed</option>
+                  <option>Others</option>
+                </select>
+              </div>
+            </div>
+            <div>
+              <div>How satisfied are you with the books?</div>
+              <div>
+              <?php
+              // 配列からラジオボタンを作成する
+                $ar_rate = array(
+                  "5" => "Very Satisfied",
+                  "4" => "Satisfied",
+                  "3" => "Normal",
+                  "2" => "Unsatisfied",
+                  "1" => "Very Unsatisfied",
+                );
+
+                foreach($ar_rate as $key=>$value){
+                  echo "<input type=\"radio\" name=\"rate1\" value=\"{$key}\">{$value}";
+                }
+              ?>
+              </div>
+            </div>
+            <div>
+              <div>How about the book volume?</div>
+              <div>
+                <?php
+                foreach($ar_rate as $key=>$value){
+                  echo "<input type=\"radio\" name=\"rate2\" value=\"{$key}\">{$value}";
+                }
                 ?>
-                </td>
-              </tr>
-              <tr>
-                <td>How about the book volume?</td>
-                <td>
-                  <?php
-                  foreach($ar_rate as $key=>$value){
-                    echo "<input type=\"radio\" name=\"rate2\" value=\"{$key}\">{$value}";
-                  }
-                  ?>
-                </td>
-              </tr>
-              <tr>
-                <td>Programming languages that you have a experience</td>
-                <td>
-                  <input type="checkbox" name="tec[]" value="PHP">PHP
-                  <input type="checkbox" name="tec[]" value="Java">Java
-                  <input type="checkbox" name="tec[]" value="Ruby">Ruby
-                  <input type="checkbox" name="tec[]" value="C#">C#
-                  <input type="checkbox" name="tec[]" value="Perl">Perl
-                </td>
-              </tr>
-              <tr>
-                <td>New Publication Information</td>
-                <td>
-                  <input type="checkbox" name="dm" checked>Please send me the information
-                </td>
-              </tr>
-              <tr>
-                <td>Book Reviews</td>
-                <td>
-                  <textarea name="message" cols="40" rows="5"></textarea>
-                </td>
-              </tr>
-              <tr>
-                <td align="right" colspan="2">
-                  <input type="submit" value="confirm" name="sub1">
-                </td>
-              </tr>
-            </table>
+              </div>
+            </div>
+            <div>
+              <div>Programming languages that you have a experience</div>
+              <div>
+                <input type="checkbox" name="tec[]" value="PHP">PHP
+                <input type="checkbox" name="tec[]" value="Java">Java
+                <input type="checkbox" name="tec[]" value="Ruby">Ruby
+                <input type="checkbox" name="tec[]" value="C#">C#
+                <input type="checkbox" name="tec[]" value="Perl">Perl
+              </div>
+            </div>
+            <div>
+              <div>New Publication Information</div>
+              <div>
+                <input type="checkbox" name="dm" checked>Please send me the information
+              </div>
+            </div>
+            <div>
+              <div>Book Reviews</div>
+              <div>
+                <textarea name="message" cols="40" rows="5"></textarea>
+              </div>
+            </div>
+            <div>
+              <div align="right" colspan="2">
+                <input type="submit" value="confirm" name="sub1">
+              </div>
+            </div>
           </form>
         </div>
       </div>
