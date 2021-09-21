@@ -40,7 +40,7 @@
             </div>
 
             <!-- <div class="wrap-input3 input3-select"> -->
-            <div class="wrap-input3 select2-container">
+            <div class="wrap-input3">
               <select class="selection-2" name="job">
                 <option>Occupation</option>
                 <option>Student</option>
