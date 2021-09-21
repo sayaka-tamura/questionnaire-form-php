@@ -84,6 +84,7 @@
                   echo "<div class=\"contact3-form-radio\">";
                     /* echo "<input type=\"radio\" name=\"rate1\" value=\"{$key}\" id=\"radio2\" class=\"input-radio3\">{$value}"; */
                     echo "<input type=\"radio\" name=\"rate2\" value=\"{$key}\" id=\"radio2\">{$value}"; 
+                    echo "<label class=\"input-radio3\" for=\"radio2\">".$value."</label>";
                   echo "</div>";
                 }
                 ?>
@@ -101,9 +102,7 @@
             </div>
             <div class="wrap-input3>
               <div>New Publication Information</div>
-              <div>
-                <input type="checkbox" name="dm" checked>Please send me the information
-              </div>
+              <input type="checkbox" name="dm" checked>Please send me the information
             </div>
             <div class="wrap-input3 validate-input" data-validate = "Message is required">
               <textarea class="input3" name="message" placeholder="Book Reviews" cols="40" rows="5"></textarea>
