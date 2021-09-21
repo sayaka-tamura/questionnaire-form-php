@@ -56,40 +56,36 @@
 
             <div class="wrap-contact3-form-radio">
               <div>How satisfied are you with the books?</div>
-                <div>
-                <?php
-                // 配列からラジオボタンを作成する
-                  $ar_rate = array(
-                    "5" => "Very Satisfied",
-                    "4" => "Satisfied",
-                    "3" => "Normal",
-                    "2" => "Unsatisfied",
-                    "1" => "Very Unsatisfied",
-                  );
+              <?php
+              // 配列からラジオボタンを作成する
+                $ar_rate = array(
+                  "5" => "Very Satisfied",
+                  "4" => "Satisfied",
+                  "3" => "Normal",
+                  "2" => "Unsatisfied",
+                  "1" => "Very Unsatisfied",
+                );
 
-                  foreach($ar_rate as $key=>$value){
-                    echo "<div class=\"contact3-form-radio\">";
-                      /* echo "<input type=\"radio\" name=\"rate1\" value=\"{$key}\" id=\"radio2\" class=\"input-radio3\">{$value}"; */
-                      echo "<input type=\"radio\" name=\"rate1\" value=\"{$key}\" id=\"radio2\">"." ".$value;
-                      echo "<label class=\"input-radio3\" for=\"radio2\">".$value."</label>";
-                    echo "</div>";
-                  }
-                ?>
-                </div>
-            </div>
-            <div class="wrap-contact3-form-radio">
-              <div>How about the book volume?</div>
-              <div>
-                <?php
                 foreach($ar_rate as $key=>$value){
                   echo "<div class=\"contact3-form-radio\">";
                     /* echo "<input type=\"radio\" name=\"rate1\" value=\"{$key}\" id=\"radio2\" class=\"input-radio3\">{$value}"; */
-                    echo "<input type=\"radio\" name=\"rate2\" value=\"{$key}\" id=\"radio2\">"." ".$value; 
+                    echo "<input type=\"radio\" name=\"rate1\" value=\"{$key}\" id=\"radio2\">"." ".$value;
                     echo "<label class=\"input-radio3\" for=\"radio2\">".$value."</label>";
                   echo "</div>";
                 }
-                ?>
-              </div>
+              ?>
+            </div>
+            <div class="wrap-contact3-form-radio">
+              <div>How about the book volume?</div>
+              <?php
+              foreach($ar_rate as $key=>$value){
+                echo "<div class=\"contact3-form-radio\">";
+                  /* echo "<input type=\"radio\" name=\"rate1\" value=\"{$key}\" id=\"radio2\" class=\"input-radio3\">{$value}"; */
+                  echo "<input type=\"radio\" name=\"rate2\" value=\"{$key}\" id=\"radio2\">"." ".$value; 
+                  echo "<label class=\"input-radio3\" for=\"radio2\">".$value."</label>";
+                echo "</div>";
+              }
+              ?>
             </div>
             <div class="wrap-input3>
               <div>Programming languages that you have a experience</div>
