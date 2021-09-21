@@ -41,16 +41,14 @@
 
             <!-- <div class="wrap-input3 input3-select"> -->
             <div class="wrap-input3">
-              <div>
-                <select class="selection-2" name="job">
-                  <option>Occupation</option>
-                  <option>Student</option>
-                  <option>Company employee</option>
-                  <option>Public official</option>
-                  <option>Self-employed</option>
-                  <option>Others</option>
-                </select>
-              </div>
+              <select class="selection-2" name="job">
+                <option>Occupation</option>
+                <option>Student</option>
+                <option>Company employee</option>
+                <option>Public official</option>
+                <option>Self-employed</option>
+                <option>Others</option>
+              </select>
               <span class="focus-input3"></span>
             </div>
 
@@ -87,6 +85,7 @@
               }
               ?>
             </div>
+
             <div class="wrap-input3>
               <div>Programming languages that you have a experience</div>
               <div>
@@ -97,21 +96,22 @@
                 <input type="checkbox" name="tec[]" value="Perl">Perl
               </div>
             </div>
+
             <div class="wrap-input3>
               <div>New Publication Information</div>
-              <div>
-                <input type="checkbox" name="dm" value="Please send me the information" checked>Please send me the information
-              </div>
+              <input type="checkbox" name="dm" value="Please send me the information" checked>Please send me the information
             </div>
+
             <div class="wrap-input3 validate-input" data-validate = "Message is required">
               <textarea class="input3" name="message" placeholder="Book Reviews" cols="40" rows="5"></textarea>
               <span class="focus-input3"></span>
             </div>
-            <div>
-              <div class="container-contact3-form-btn">
-                <input type="submit" value="confirm" name="sub1"  class="contact3-form-btn">
-              </div>
+
+
+            <div class="container-contact3-form-btn">
+              <input type="submit" value="confirm" name="sub1"  class="contact3-form-btn">
             </div>
+
           </form>
         </div>
       </div>
