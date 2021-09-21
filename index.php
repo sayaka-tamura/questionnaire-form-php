@@ -1,4 +1,5 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
   <?php require("template/head.php"); ?>
 
@@ -10,7 +11,7 @@
             <span class="contact3-form-title">
               Questionary
             </span>
-            <p>Click "Confirm" button after answering questionary</p>
+            <!-- <p>Click "Confirm" button after answering questionary</p> -->
 
             <div class="wrap-contact3-form-radio">
               <div class="contact3-form-radio m-r-42">
@@ -21,7 +22,7 @@
               </div>
 
               <div class="contact3-form-radio">
-                <input class="input-radio3" id="radio2" type="radio" name="choice" value="get-quote">
+                <input class="input-radio3" id="radio2" type="radio" name="choice" value="respond-to-a-survey">
                 <label class="label-radio3" for="radio2">
                   Respond to a survey
                 </label>
@@ -69,7 +70,7 @@
                   foreach($ar_rate as $key=>$value){
                     echo "<div class=\"contact3-form-radio\">";
                       /* echo "<input type=\"radio\" name=\"rate1\" value=\"{$key}\" id=\"radio2\" class=\"input-radio3\">{$value}"; */
-                      echo "<input type=\"radio\" name=\"rate1\" value=\"{$key}\" id=\"radio2\">{$value}";
+                      echo "<input type=\"radio\" name=\"rate1\" value=\"{$key}\" id=\"radio2\">"." ".$value;
                       echo "<label class=\"input-radio3\" for=\"radio2\">".$value."</label>";
                     echo "</div>";
                   }
