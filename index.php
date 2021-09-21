@@ -89,7 +89,7 @@
                 ?>
               </div>
             </div>
-            <div>
+            <div class="wrap-input3>
               <div>Programming languages that you have a experience</div>
               <div>
                 <input type="checkbox" name="tec[]" value="PHP">PHP
@@ -99,21 +99,19 @@
                 <input type="checkbox" name="tec[]" value="Perl">Perl
               </div>
             </div>
-            <div>
+            <div class="wrap-input3>
               <div>New Publication Information</div>
               <div>
                 <input type="checkbox" name="dm" checked>Please send me the information
               </div>
             </div>
-            <div>
-              <div>Book Reviews</div>
-              <div>
-                <textarea name="message" cols="40" rows="5"></textarea>
-              </div>
+            <div class="wrap-input3 validate-input" data-validate = "Message is required">
+              <textarea class="input3" name="message" placeholder="Book Reviews" cols="40" rows="5"></textarea>
+              <span class="focus-input3"></span>
             </div>
             <div>
-              <div align="right" colspan="2">
-                <input type="submit" value="confirm" name="sub1">
+              <div class="container-contact3-form-btn">
+                <input type="submit" value="confirm" name="sub1"  class="contact3-form-btn">
               </div>
             </div>
           </form>
