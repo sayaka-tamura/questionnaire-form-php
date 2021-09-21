@@ -76,12 +76,15 @@
                 ?>
                 </div>
             </div>
-            <div>
+            <div class="wrap-contact3-form-radio">
               <div>How about the book volume?</div>
               <div>
                 <?php
                 foreach($ar_rate as $key=>$value){
-                  echo "<input type=\"radio\" name=\"rate2\" value=\"{$key}\">{$value}";
+                  echo "<div class=\"contact3-form-radio\">";
+                    /* echo "<input type=\"radio\" name=\"rate1\" value=\"{$key}\" id=\"radio2\" class=\"input-radio3\">{$value}"; */
+                    echo "<input type=\"radio\" name=\"rate2\" value=\"{$key}\" id=\"radio2\">{$value}"; 
+                  echo "</div>";
                 }
                 ?>
               </div>
