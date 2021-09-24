@@ -47,12 +47,15 @@
       $dm = $_POST["dm"];
       $message = isset($_POST['message']) ? $_POST['message'] : NULL;
 
+      if($job=="Occupation"){
+        $job = " - ";
+      }
+
       if(empty($tec)){
         $tec = "None";
       } else {
         $tec = implode(" ", $_POST["tec"]);
       }
-      $tec = h($tec);
 
       if($_POST["dm"] == "on"){
         $dm = "Request to send";

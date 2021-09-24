@@ -25,7 +25,6 @@
   <?php
     // 入力エラーチェック
     $temp_array = errorCheck($_POST); 
-    var_dump($temp_array);
   ?>
 
   <body>
@@ -64,7 +63,7 @@
           <td><?php echo $temp_array['dm'] ?></td>
         </tr>
         <tr>
-          <td>Book Reviews</td>
+          <td>Your Message</td>
           <td><?php echo nl2br($temp_array['message']) ?></td>
         </tr>
         <tr>
