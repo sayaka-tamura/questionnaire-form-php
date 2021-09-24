@@ -7,12 +7,6 @@
     
     require("template/head.php"); 
     var_dump($_SESSION);
-    var_dump($_SESSION['tec']);
-    echo strpos($_SESSION['tec'], "PHP");
-    echo strpos($_SESSION['tec'], "Java");
-    echo strpos($_SESSION['tec'], "Ruby");
-    echo strpos($_SESSION['tec'], "C#");
-    echo strpos($_SESSION['tec'], "Perl");
   ?>
 
   <body>
@@ -77,7 +71,7 @@
 
                 foreach($ar_rate as $key=>$value){
                   echo "<div class=\"form-check\">";
-                    echo "<input class=\"form-check-input\" type=\"radio\" name=\"rate1\" value=\"{$key}\" id=\"radio2\">";
+                    echo "<input class=\"form-check-input\" type=\"radio\" name=\"rate1\" value=\"{$key}\" id=\"radio2\" <?php if (isset($_SESSION['rate1']) && $_SESSION['rate1'] == \"{$value}\")){echo 'checked';} ?> >";
                     echo "<label class=\"form-check-label\" for=\"radio2\">".$value."</label>";
                   echo "</div>";
                 }
