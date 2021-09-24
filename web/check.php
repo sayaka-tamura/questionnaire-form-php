@@ -5,6 +5,10 @@
     exit;
   }
 
+  // Importing info for "Go Back Button"
+  $h = $_SERVER['HTTP_HOST'];
+  $r = $_SERVER['HTTP_REFERER'];
+
   require("template/validation.php");
   //POSTされたデータをチェック
   $_POST = checkInput($_POST);
@@ -69,6 +73,11 @@
         <tr>
           <td align="right" colspan="2">
             <input type="submit" value="Submit Answer" name="sub1">
+            <?php
+              if (!empty($r) && (strpos($r, $h) !== false)) : // strpos()-> 特定の文字列を含むかをチェック方法
+            ?>
+              <input type="button" class="form-control mt-3 btn btn-info" value="Go Back" onclick="location.href='<?= $r ?>'">
+            <?php endif ?>
           </td>
         </tr>
       </table>
