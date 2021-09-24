@@ -6,6 +6,8 @@
     session_start();
     
     require("template/head.php"); 
+
+    var_dump($_SESSION);
   ?>
 
   <body>
@@ -39,19 +41,19 @@
               <span class="focus-input3"></span>
             </div>
 
-            <div class="wrap-input3 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-              <input class="input3" type="text" name="email" placeholder="Your Email">
+            <div class="wrap-input3 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+              <input class="input3" type="text" name="email" placeholder="Your Email" value="<?php if(isset($_SESSION['mail'])){echo $_SESSION['mail'];} ?>">
               <span class="focus-input3"></span>
             </div>
 
             <div class="input3 wrap-input3 input3-select">
               <select class="selection-2" name="job">
-                <option>Occupation</option>
-                <option>Student</option>
-                <option>Company employee</option>
-                <option>Public official</option>
-                <option>Self-employed</option>
-                <option>Others</option>
+                <option value="occupation" <?php echo array_key_exists('job', $_SESSION) && $_SESSION['job']=='occupation'?'selected':''; ?>>Occupation</option>
+                <option value="student" <?php echo array_key_exists('job', $_SESSION) && $_SESSION['job']=='student'?'selected':''; ?>>Student</option>
+                <option value="company_employee" <?php echo array_key_exists('job', $_SESSION) && $_SESSION['job']=='company_employee'?'selected':''; ?>>Company employee</option>
+                <option value="public_official" <?php echo array_key_exists('job', $_SESSION) && $_SESSION['job']=='public_official'?'selected':''; ?>>Public official</option>
+                <option value="self_employed" <?php echo array_key_exists('job', $_SESSION) && $_SESSION['job']=='self_employed'?'selected':''; ?>>Self-employed</option>
+                <option value="others" <?php echo array_key_exists('job', $_SESSION) && $_SESSION['job']=='others'?'selected':''; ?>>Others</option>
               </select>
               <span class="focus-input3"></span>
             </div>
@@ -114,8 +116,8 @@
               </div>
             </div>
 
-            <div class="wrap-input3 validate-input my-5" data-validate = "Message is required">
-              <textarea class="input3" name="message" placeholder="Your Message" cols="40" rows="5"></textarea>
+            <div class="wrap-input3 validate-input my-5" data-validate="Message is required">
+              <textarea class="input3" name="message" placeholder="Your Message" cols="40" rows="5" value="<?php if(isset($_SESSION['message'])){echo $_SESSION['message'];} ?>"></textarea>
               <span class="focus-input3"></span>
             </div>
 
