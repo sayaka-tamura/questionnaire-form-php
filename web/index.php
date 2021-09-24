@@ -5,8 +5,6 @@
     // Session Start
     session_start();
     
-    $tec[]=" ";
-
     require("template/head.php"); 
     var_dump($_SESSION);
     var_dump($_SESSION['tec']);
@@ -102,7 +100,7 @@
               <div>
                 <div class="form-check form-check-inline ml-0">
                   <input type="checkbox" name="tec[]" value="PHP"
-                    <?php if(isset($_SESSION['tec']) && strpos($_SESSION['tec'], "PHP")){echo 'checked';} ?>
+                    <?php if(isset($_SESSION['tec']) && (strpos($_SESSION['tec'], "PHP") === 0)){echo 'checked';} ?>
                   >
                   <label class="form-check-label">PHP</label>
                 </div>
