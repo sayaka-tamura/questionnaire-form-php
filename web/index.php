@@ -7,7 +7,7 @@
     
     require("template/head.php"); 
     var_dump($_SESSION);
-    var_dump(in_array("PHP",$_SESSION['tec']));
+    var_dump($_SESSION['tec']);
   ?>
 
   <body>
