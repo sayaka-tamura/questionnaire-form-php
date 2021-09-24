@@ -6,7 +6,7 @@
     session_start();
     
     require("template/head.php"); 
-
+    var_dump($_SESSION);
   ?>
 
   <body>
