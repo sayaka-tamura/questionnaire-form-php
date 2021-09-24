@@ -36,35 +36,35 @@
       <table border="1">
         <tr>
           <td>Name</td>
-          <td><?php echo $_POST['name'] ?></td>
+          <td><?php echo $temp_array['name'] ?></td>
         </tr>
         <tr>
           <td>E-mail</td>
-          <td><?php echo $email ?></td>
+          <td><?php echo $temp_array['email'] ?></td>
         </tr>
         <tr>
           <td>Occupation</td>
-          <td><?php echo $job ?></td>
+          <td><?php echo $temp_array['job'] ?></td>
         </tr>
         <tr>
           <td>How satisfied are you with the books?</td>
-          <td><?php echo $ar_rate[$rate1] ?></td>
+          <td><?php echo $temp_array['rate1'] ?></td>
         </tr>
         <tr>
           <td>How about the book volume?</td>
-          <td><?php echo $ar_rate[$rate2] ?></td>
+          <td><?php echo $temp_array['rate2'] ?></td>
         </tr>
         <tr>
           <td>Programming languages that you have a experience</td>
-          <td><?php echo $tec ?></td>
+          <td><?php echo $temp_array['tec'] ?></td>
         </tr>
         <tr>
           <td>New Publication Information</td>
-          <td><?php echo $dm ?></td>
+          <td><?php echo $temp_array['dm'] ?></td>
         </tr>
         <tr>
           <td>Book Reviews</td>
-          <td><?php echo nl2br($message) ?></td>
+          <td><?php echo nl2br($temp_array['message']) ?></td>
         </tr>
         <tr>
           <td align="right" colspan="2">
