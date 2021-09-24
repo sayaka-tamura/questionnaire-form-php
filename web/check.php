@@ -4,6 +4,11 @@
     echo "Ended Process";
     exit;
   }
+
+  require("template/validation.php");
+  //POSTされたデータをチェック
+  $_POST = checkInput($_POST);
+
   // 評価用数値と文字列の関連付け
   $ar_rate = array(
     "5" => "Very Satisfied",
@@ -17,6 +22,10 @@
 <html>
 
   <?php require("template/head.php"); ?>
+  <?php
+    // 入力エラーチェック
+    $temp_array = errorCheck($_POST); 
+  ?>
 
   <body>
     <h1>Questionary</h1>
