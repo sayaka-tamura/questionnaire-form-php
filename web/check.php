@@ -30,7 +30,6 @@
   <body>
     <h1>Questionary</h1>
     <p>Please Confirm Your Answer</p>
-    <?php var_dump($_POST); ?>
 
     <!-- アンケート回答の確認表示 -->
     <form method="POST" action="submit.php">
