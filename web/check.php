@@ -30,68 +30,10 @@
   <body>
     <h1>Questionary</h1>
     <p>Please Confirm Your Answer</p>
+    <?php var_dump($_POST); ?>
     
-    <?php
-      $name = $_POST["name"];
-      $email = $_POST["email"];
-      $job = $_POST["job"];
-      $rate1 = $_POST["rate1"];
-      $rate2 = $_POST["rate2"];
-      $tec = $_POST["tec"];
-      $dm = $_POST["dm"];
-      $message = $_POST["message"];
-
-      $name = h($name);
-      $email = h($email);
-      $job = h($job);
-      $rate1 = h($rate1);
-      $rate2 = h($rate2);
-      $message = h($message);
-
-      if(empty($name)){
-        echo "Please type your name";
-        exit;
-      }
-
-      if(empty($email)){
-        echo "Please type your email";
-        exit;
-      }
-      if(empty($job)){
-        echo "Please select your occupation";
-        exit;
-      }
-      if(empty($rate1)){
-        echo "Please select your satisfaction for the book";
-        exit;
-      }
-      if(empty($rate2)){
-        echo "Please select your satisfaction for the volume of the book";
-        exit;
-      }
-      if(empty($tec)){
-        $tec = "None";
-      } else {
-        $tec = implode(" ", $_POST["tec"]);
-      }
-      $tec = h($tec);
-
-      if($_POST["dm"] == "on"){
-        $dm = "Request to send";
-      } else {
-        $dm = "No Need";
-      }
-      if(empty($message)){
-        echo "Please type your review for the book";
-        exit;
-      }
-
-      function h($str) {
-        return htmlspecialchars($str, ENT_QUOTES, 'UTF-8');
-      }
-    ?>
-
     <!-- アンケート回答の確認表示 -->
+    <!--
     <form method="POST" action="submit.php">
       <table border="1">
         <tr>
@@ -132,18 +74,8 @@
           </td>
         </tr>
       </table>
-
-      <!-- Hidden Field -->
-      <input type="hidden" name="name" value="<?php echo $name; ?>">
-      <input type="hidden" name="email" value="<?php echo $email; ?>">
-      <input type="hidden" name="job" value="<?php echo $job; ?>">
-      <input type="hidden" name="rate1" value="<?php echo $rate1; ?>">
-      <input type="hidden" name="rate2" value="<?php echo $rate2; ?>">
-      <input type="hidden" name="tec" value="<?php echo $tec; ?>">
-      <input type="hidden" name="dm" value="<?php echo $dm; ?>">
-      <input type="hidden" name="message" value="<?php echo $message; ?>">
     </form>
-
+    --!>
     <?php require("template/footer.php"); ?>
 
   </body>
