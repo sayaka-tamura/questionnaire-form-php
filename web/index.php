@@ -7,7 +7,8 @@
     
     require("template/head.php"); 
     var_dump($_SESSION);
-    var_dump($_SESSION['tec']);
+    $key=($_SESSION['tec']);
+    echo $key;
   ?>
 
   <body>
