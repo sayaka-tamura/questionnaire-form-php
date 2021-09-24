@@ -25,7 +25,6 @@
     <?php
       $name = $_POST["name"];
       $email = $_POST["email"];
-      $gender = $_POST["gender"];
       $job = $_POST["job"];
       $rate1 = $_POST["rate1"];
       $rate2 = $_POST["rate2"];
@@ -35,7 +34,6 @@
 
       $name = h($name);
       $email = h($email);
-      $gender = h($gender);
       $job = h($job);
       $rate1 = h($rate1);
       $rate2 = h($rate2);
@@ -48,10 +46,6 @@
 
       if(empty($email)){
         echo "Please type your email";
-        exit;
-      }
-      if(empty($gender)){
-        echo "Please select your gender";
         exit;
       }
       if(empty($job)){
@@ -100,10 +94,6 @@
           <td><?php echo $email ?></td>
         </tr>
         <tr>
-          <td>Gender</td>
-          <td><?php echo $gender ?></td>
-        </tr>
-        <tr>
           <td>Occupation</td>
           <td><?php echo $job ?></td>
         </tr>
@@ -137,7 +127,6 @@
       <!-- Hidden Field -->
       <input type="hidden" name="name" value="<?php echo $name; ?>">
       <input type="hidden" name="email" value="<?php echo $email; ?>">
-      <input type="hidden" name="gender" value="<?php echo $gender; ?>">
       <input type="hidden" name="job" value="<?php echo $job; ?>">
       <input type="hidden" name="rate1" value="<?php echo $rate1; ?>">
       <input type="hidden" name="rate2" value="<?php echo $rate2; ?>">

@@ -40,7 +40,7 @@
             </div>
 
             <!-- <div class="wrap-input3 input3-select"> -->
-            <div class="wrap-input3">
+            <div class="input3 wrap-input3 input3-select">
               <select class="selection-2" name="job">
                 <option>Occupation</option>
                 <option>Student</option>
@@ -52,8 +52,8 @@
               <span class="focus-input3"></span>
             </div>
 
-            <div class="wrap-contact3-form-radio">
-              <div>How satisfied are you with the books?</div>
+            <div class="input3 input3-select my-5 margin-radio">
+              <div class="my-4">How satisfied are you with the books?</div>
               <?php
               // 配列からラジオボタンを作成する
                 $ar_rate = array(
@@ -65,48 +65,65 @@
                 );
 
                 foreach($ar_rate as $key=>$value){
-                  echo "<div class=\"contact3-form-radio\">";
-                    /* echo "<input type=\"radio\" name=\"rate1\" value=\"{$key}\" id=\"radio2\" class=\"input-radio3\">{$value}"; */
-                    echo "<input type=\"radio\" name=\"rate1\" value=\"{$key}\" id=\"radio2\">"." ".$value;
-                    echo "<label class=\"input-radio3\" for=\"radio2\">".$value."</label>";
+                  echo "<div class=\"form-check\">";
+                    /* echo "<input type=\"radio\" name=\"rate1\" value=\"{$key}\" id=\"radio2\" class=\"input-radio3 form-check-input\">{$value}"; */
+                    echo "<input class=\"form-check-input\" type=\"radio\" name=\"rate1\" value=\"{$key}\" id=\"radio2\" data-validate=\"This check is reqired\">";
+                    echo "<label class=\"form-check-label\" for=\"radio2\">".$value."</label>";
                   echo "</div>";
                 }
               ?>
             </div>
-            <div class="wrap-contact3-form-radio">
-              <div>How about the book volume?</div>
+            <div class="input3 input3-select my-5 margin-radio my-5 margin-radio">
+              <div class="my-4">How about the book volume?</div>
               <?php
               foreach($ar_rate as $key=>$value){
-                echo "<div class=\"contact3-form-radio\">";
+                echo "<div class=\"form-check\">";
                   /* echo "<input type=\"radio\" name=\"rate1\" value=\"{$key}\" id=\"radio2\" class=\"input-radio3\">{$value}"; */
-                  echo "<input type=\"radio\" name=\"rate2\" value=\"{$key}\" id=\"radio2\">"." ".$value; 
-                  echo "<label class=\"input-radio3\" for=\"radio2\">".$value."</label>";
+                  echo "<input class=\"form-check-input\" type=\"radio\" name=\"rate2\" value=\"{$key}\" id=\"radio2\" data-validate=\"This check is reqired\">"; 
+                  echo "<label class=\"form-check-label\" for=\"radio2\">".$value."</label>";
                 echo "</div>";
               }
               ?>
             </div>
 
-            <div class="wrap-input3>
-              <div>Programming languages that you have a experience</div>
+            <div class="input3 input3-select my-5 margin-radio my-5">
+              <div class="my-4">Programming languages that you have a experience</div>
               <div>
-                <input type="checkbox" name="tec[]" value="PHP">PHP
-                <input type="checkbox" name="tec[]" value="Java">Java
-                <input type="checkbox" name="tec[]" value="Ruby">Ruby
-                <input type="checkbox" name="tec[]" value="C#">C#
-                <input type="checkbox" name="tec[]" value="Perl">Perl
+                <div class="form-check form-check-inline ml-0">
+                  <input type="checkbox" name="tec[]" value="PHP">
+                  <label class="form-check-label">PHP</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input type="checkbox" name="tec[]" value="Java">
+                  <label class="form-check-label">Java</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input type="checkbox" name="tec[]" value="Ruby">
+                  <label class="form-check-label">Ruby</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input type="checkbox" name="tec[]" value="C#">
+                  <label class="form-check-label">C#</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input type="checkbox" name="tec[]" value="Perl">
+                  <label class="form-check-label">Perl</label>
+                </div>
               </div>
             </div>
 
-            <div class="wrap-input3>
-              <div>New Publication Information</div>
-              <input type="checkbox" name="dm" value="Please send me the information" checked>Please send me the information
-            </div>
-
-            <div class="wrap-input3 validate-input" data-validate = "Message is required">
-              <textarea class="input3" name="message" placeholder="Book Reviews" cols="40" rows="5"></textarea>
+            <div class="wrap-input3 validate-input my-5" data-validate = "Message is required">
+              <textarea class="input3" name="message" placeholder="Your Message" cols="40" rows="5"></textarea>
               <span class="focus-input3"></span>
             </div>
 
+            <div class="input3 my-5">
+              <div class="my-4">New Publication Information</div>
+              <div class="form-check form-check-inline">
+                <input type="checkbox" name="dm" value="Please send me the information" checked>
+                <label class="form-check-label">Please send me the information</label>
+              </div>
+            </div>
 
             <div class="container-contact3-form-btn">
               <input type="submit" value="confirm" name="sub1"  class="contact3-form-btn">
