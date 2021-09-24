@@ -8,7 +8,12 @@
     require("template/head.php"); 
     var_dump($_SESSION);
     $key=($_SESSION['tec']);
-    echo $key;
+    if ($key){
+      print('配列の中にPHPは見つかりました<br>');
+    }else{
+      print('配列の中にPHPは見つかりません<br>');
+    }
+
   ?>
 
   <body>
