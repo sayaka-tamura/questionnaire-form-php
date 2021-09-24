@@ -31,9 +31,8 @@
     <h1>Questionary</h1>
     <p>Please Confirm Your Answer</p>
     <?php var_dump($_POST); ?>
-    
+
     <!-- アンケート回答の確認表示 -->
-    <!--
     <form method="POST" action="submit.php">
       <table border="1">
         <tr>
@@ -75,7 +74,7 @@
         </tr>
       </table>
     </form>
-    --!>
+
     <?php require("template/footer.php"); ?>
 
   </body>
