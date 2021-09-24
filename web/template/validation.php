@@ -63,6 +63,17 @@
         $dm = "No Need";
       }
 
+      // Save the value to $_SESSION for Go Back button
+      $_SESSION["name"] = $name;
+      $_SESSION["email"] = $email;
+      $_SESSION["job"] = $job;
+      $_SESSION["rate1"] = $rate1;
+      $_SESSION["rate2"] = $rate2;
+      $_SESSION["tec"] = $tec;
+      $_SESSION["dm"] = $dm;
+      $_SESSION["message"] = $message;
+      
+
       //POSTされたデータを整形（前後にあるホワイトスペースを削除）してエスケープ処理
       $name = h(trim($name));
       $email = h(trim($email));

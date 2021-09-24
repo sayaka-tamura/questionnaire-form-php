@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <?php require("template/head.php"); ?>
+  <?php
+    // Session Start
+    session_start();
+    
+    require("template/head.php"); 
+  ?>
 
   <body>
     <div class="bg-contact3" style="background-image: url('images/bg-01.jpg');">
@@ -30,7 +35,7 @@
             </div>
 
             <div class="wrap-input3 validate-input" data-validate="Name is required">
-              <input class="input3" type="text" name="name" placeholder="Your Name">
+              <input class="input3" type="text" name="name" placeholder="Your Name" value="<?php if(isset($_SESSION['name'])){echo $_SESSION['name'];} ?>">
               <span class="focus-input3"></span>
             </div>
 
@@ -132,6 +137,11 @@
     </div>
     <div id="dropDownSelect1"></div>
     
-    <?php require("template/footer.php"); ?>
+    <?php 
+      require("template/footer.php"); 
+
+      // Session End
+      session_destroy();
+    ?>
   </body>
 </html>

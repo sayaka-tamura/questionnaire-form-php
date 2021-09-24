@@ -1,4 +1,7 @@
 <?php
+  // Session Start
+  session_start();
+
   // Form データが空の場合は終了
   if(empty($_POST)){
     echo "Ended Process";
@@ -84,6 +87,6 @@
     </form>
 
     <?php require("template/footer.php"); ?>
-
+    
   </body>
 </html>
