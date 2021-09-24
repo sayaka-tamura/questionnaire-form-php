@@ -39,7 +39,6 @@
               <span class="focus-input3"></span>
             </div>
 
-            <!-- <div class="wrap-input3 input3-select"> -->
             <div class="input3 wrap-input3 input3-select">
               <select class="selection-2" name="job">
                 <option>Occupation</option>
@@ -66,8 +65,7 @@
 
                 foreach($ar_rate as $key=>$value){
                   echo "<div class=\"form-check\">";
-                    /* echo "<input type=\"radio\" name=\"rate1\" value=\"{$key}\" id=\"radio2\" class=\"input-radio3 form-check-input\">{$value}"; */
-                    echo "<input class=\"form-check-input\" type=\"radio\" name=\"rate1\" value=\"{$key}\" id=\"radio2\" data-validate=\"This check is reqired\">";
+                    echo "<input class=\"form-check-input\" type=\"radio\" name=\"rate1\" value=\"{$key}\" id=\"radio2\">";
                     echo "<label class=\"form-check-label\" for=\"radio2\">".$value."</label>";
                   echo "</div>";
                 }
@@ -78,8 +76,7 @@
               <?php
               foreach($ar_rate as $key=>$value){
                 echo "<div class=\"form-check\">";
-                  /* echo "<input type=\"radio\" name=\"rate1\" value=\"{$key}\" id=\"radio2\" class=\"input-radio3\">{$value}"; */
-                  echo "<input class=\"form-check-input\" type=\"radio\" name=\"rate2\" value=\"{$key}\" id=\"radio2\" data-validate=\"This check is reqired\">"; 
+                  echo "<input class=\"form-check-input\" type=\"radio\" name=\"rate2\" value=\"{$key}\" id=\"radio2\">"; 
                   echo "<label class=\"form-check-label\" for=\"radio2\">".$value."</label>";
                 echo "</div>";
               }
