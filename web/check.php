@@ -36,7 +36,7 @@
       <table border="1">
         <tr>
           <td>Name</td>
-          <td><?php echo $name ?></td>
+          <td><?php echo $_POST['name'] ?></td>
         </tr>
         <tr>
           <td>E-mail</td>
