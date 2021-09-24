@@ -7,6 +7,7 @@
     
     require("template/head.php"); 
     var_dump($_SESSION);
+    var_dump(in_array("PHP",$_SESSION['tec']));
   ?>
 
   <body>
@@ -94,25 +95,26 @@
               <div>
                 <div class="form-check form-check-inline ml-0">
                   <input type="checkbox" name="tec[]" value="PHP"
-                    <?php if (isset($_SESSION['tec']) && $_POST['tec'] == "PHP") echo 'checked'; ?>
+                    <?php if (isset($_SESSION['tec']) && in_array("PHP",$_SESSION['tec'])) echo 'checked'; ?>
                   >
+                  
                   <label class="form-check-label">PHP</label>
                 </div>
                 <div class="form-check form-check-inline">
                   <input type="checkbox" name="tec[]" value="Java"
-                    <?php if (isset($_SESSION['tec']) && $_POST['tec'] == "Java") echo 'checked'; ?>
+                    <?php if (isset($_SESSION['tec']) && $_SESSION['tec'] == "Java") echo 'checked'; ?>
                   >
                   <label class="form-check-label">Java</label>
                 </div>
                 <div class="form-check form-check-inline">
                   <input type="checkbox" name="tec[]" value="Ruby"
-                    <?php if (isset($_SESSION['tec']) && $_POST['tec'] == "Ruby") echo 'checked'; ?>
+                    <?php if (isset($_SESSION['tec']) && $_SESSION['tec'] == "Ruby") echo 'checked'; ?>
                   >
                   <label class="form-check-label">Ruby</label>
                 </div>
                 <div class="form-check form-check-inline">
                   <input type="checkbox" name="tec[]" value="C#"
-                    <?php if (isset($_SESSION['tec']) && $_POST['tec'] == "C#") echo 'checked'; ?>
+                    <?php if (isset($_SESSION['tec']) && $_SESSION['tec'] == "C#") echo 'checked'; ?>
                   >
                   <label class="form-check-label">C#</label>
                 </div>
