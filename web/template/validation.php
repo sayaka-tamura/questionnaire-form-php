@@ -43,11 +43,10 @@
       $job = isset($_POST['job']) ? $_POST['job'] : NULL;
       $rate1 = isset($_POST['rate1']) ? $_POST['rate1'] : NULL;
       $rate2 = isset($_POST['rate2']) ? $_POST['rate2'] : NULL;
-      $tec = isset($_POST['tec']) ? $_POST['tec'] : NULL;
+      $tec = $_POST['tec'];
       $dm = $_POST["dm"];
       $message = isset($_POST['message']) ? $_POST['message'] : NULL;
 
-/*
       if(empty($tec)){
         $tec = "None";
       } else {
@@ -60,7 +59,6 @@
       } else {
         $dm = "No Need";
       }
-*/
 
       //POSTされたデータを整形（前後にあるホワイトスペースを削除）してエスケープ処理
       $name = h(trim($name));

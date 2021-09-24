@@ -117,7 +117,7 @@
             <div class="input3 my-5">
               <div class="my-4">New Publication Information</div>
               <div class="form-check form-check-inline">
-                <input type="checkbox" name="dm" value="Please send me the information" checked>
+                <input type="checkbox" name="dm" checked>
                 <label class="form-check-label">Please send me the information</label>
               </div>
             </div>
