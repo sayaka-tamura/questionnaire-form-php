@@ -25,6 +25,7 @@
   <?php
     // 入力エラーチェック
     $temp_array = errorCheck($_POST); 
+    var_dump($temp_array);
   ?>
 
   <body>
@@ -48,11 +49,11 @@
         </tr>
         <tr>
           <td>How satisfied are you with the books?</td>
-          <td><?php echo $temp_array['rate1'] ?></td>
+          <td><?php echo $ar_rate[$temp_array['rate1']] ?></td>
         </tr>
         <tr>
           <td>How about the book volume?</td>
-          <td><?php echo $temp_array['rate2'] ?></td>
+          <td><?php echo $ar_rate[$temp_array['rate2']] ?></td>
         </tr>
         <tr>
           <td>Programming languages that you have a experience</td>
