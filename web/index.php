@@ -7,7 +7,6 @@
     
     require("template/head.php"); 
 
-    var_dump($_SESSION);
   ?>
 
   <body>
@@ -42,7 +41,7 @@
             </div>
 
             <div class="wrap-input3 validate-input" data-validate="Valid email is required: ex@abc.xyz">
-              <input class="input3" type="text" name="email" placeholder="Your Email" value="<?php if(isset($_SESSION['mail'])){echo $_SESSION['mail'];} ?>">
+              <input class="input3" type="text" name="email" placeholder="Your Email" value="<?php if(isset($_SESSION['email'])){echo $_SESSION['email'];} ?>">
               <span class="focus-input3"></span>
             </div>
 
@@ -94,30 +93,40 @@
               <div class="my-4">Programming languages that you have a experience</div>
               <div>
                 <div class="form-check form-check-inline ml-0">
-                  <input type="checkbox" name="tec[]" value="PHP">
+                  <input type="checkbox" name="tec[]" value="PHP"
+                    <?php if (isset($_SESSION['tec']) && $_POST['tec'] == "PHP") echo 'checked'; ?>
+                  >
                   <label class="form-check-label">PHP</label>
                 </div>
                 <div class="form-check form-check-inline">
-                  <input type="checkbox" name="tec[]" value="Java">
+                  <input type="checkbox" name="tec[]" value="Java"
+                    <?php if (isset($_SESSION['tec']) && $_POST['tec'] == "Java") echo 'checked'; ?>
+                  >
                   <label class="form-check-label">Java</label>
                 </div>
                 <div class="form-check form-check-inline">
-                  <input type="checkbox" name="tec[]" value="Ruby">
+                  <input type="checkbox" name="tec[]" value="Ruby"
+                    <?php if (isset($_SESSION['tec']) && $_POST['tec'] == "Ruby") echo 'checked'; ?>
+                  >
                   <label class="form-check-label">Ruby</label>
                 </div>
                 <div class="form-check form-check-inline">
-                  <input type="checkbox" name="tec[]" value="C#">
+                  <input type="checkbox" name="tec[]" value="C#"
+                    <?php if (isset($_SESSION['tec']) && $_POST['tec'] == "C#") echo 'checked'; ?>
+                  >
                   <label class="form-check-label">C#</label>
                 </div>
                 <div class="form-check form-check-inline">
-                  <input type="checkbox" name="tec[]" value="Perl">
+                  <input type="checkbox" name="tec[]" value="Perl"
+                    <?php if (isset($_SESSION['tec']) && $_POST['tec'] == "Perl") echo 'checked'; ?>
+                  >
                   <label class="form-check-label">Perl</label>
                 </div>
               </div>
             </div>
 
             <div class="wrap-input3 validate-input my-5" data-validate="Message is required">
-              <textarea class="input3" name="message" placeholder="Your Message" cols="40" rows="5" value="<?php if(isset($_SESSION['message'])){echo $_SESSION['message'];} ?>"></textarea>
+              <textarea class="input3" name="message" placeholder="Your Message" cols="40" rows="5"></textarea>
               <span class="focus-input3"></span>
             </div>
 
