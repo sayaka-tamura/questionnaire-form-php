@@ -87,8 +87,10 @@
         $error[] = '*メッセージは500文字以内でお願いします。';
       }
 
-      // job, rate1, rate2, tec, dm の追加　↑他、個別検証
-      if(isset($_POST['name']) && isset($_POST['email']) && isset($_POST['message'])) {
+      //↑他、個別検証(rate1, rate2, tec 必須にするには)
+      if(isset($_POST['name']) && isset($_POST['email']) && isset($_POST['job'])
+          && isset($_POST['rate1']) && isset($_POST['rate2'])  && isset($_POST['tec']) 
+          && isset($_POST['dm']) && isset($_POST['message'])) {
         if(count($error) > 0){ 
           echo '<p style="color:red;">以下のエラーがあります。</p><p style="color:red;">';
           foreach($error as $value) {
