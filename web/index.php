@@ -96,9 +96,8 @@
               <div>
                 <div class="form-check form-check-inline ml-0">
                   <input type="checkbox" name="tec[]" value="PHP"
-                    <?php if (isset($_SESSION['tec']) && in_array("PHP",$_SESSION['tec'], true)) echo 'checked'; ?>
+                    <?php if (isset($_SESSION['tec']) && strpos($_SESSION['tec'], "PHP")) echo 'checked'; ?>
                   >
-                  
                   <label class="form-check-label">PHP</label>
                 </div>
                 <div class="form-check form-check-inline">
