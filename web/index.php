@@ -148,7 +148,12 @@
               <div class="my-4">New Publication Information</div>
               <div class="form-check ml-4">
                 <input type="hidden" name="dm" value="off">
-                <input class="form-check-input" id="dm-check" type="checkbox" name="dm" value="on" <?php if(isset($_SESSION['dm']) && $_SESSION['dm'] == "Request to send"){echo 'checked="checked"';}?>>
+                <input class="form-check-input" id="dm-check" type="checkbox" name="dm" value="on" 
+                  <?php 
+                    if(!isset($_SESSION)){echo 'checked="checked"';}
+                    if(isset($_SESSION['dm']) && $_SESSION['dm'] == "Request to send"){echo 'checked="checked"';}
+                  ?>
+                >
                 <label class="form-check-label" for="dm-check">Please send me the information</label>
               </div>
             </div>
@@ -162,7 +167,7 @@
       </div>
     </div>
     <div id="dropDownSelect1"></div>
-
+<!--
     <script>
       function checkOff(){
 
@@ -177,7 +182,7 @@
 
       };
     </script> 
-
+--!>
     <?php 
       require("template/footer.php"); 
 
