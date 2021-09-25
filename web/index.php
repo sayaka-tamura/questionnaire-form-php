@@ -38,7 +38,13 @@
                   ?>
                 >
                   <?php
-                    if(isset($_SESSION['choice']) && $_SESSION['choice'] == "respond-to-a-survey"){echo "<script>$('.input3-select').slideDown(300)</script>";}
+                    if(isset($_SESSION['choice']) && $_SESSION['choice'] == "respond-to-a-survey"){
+                      echo "<script>
+                              if ($(this).is(':checked')) {
+                                $('.input3-select').slideDown(300)
+                              };
+                            </script>";
+                    }
                   ?>
                 <label class="label-radio3" for="radio2">
                   Respond to a survey
