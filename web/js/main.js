@@ -22,8 +22,6 @@
     $("#radio1").on('change', function(){
         if ($(this).is(":checked")) {
             $('.input3-select').slideUp(300);
-        } else {
-            $('.input3-select').slideDown(300);
         }
     });
 
