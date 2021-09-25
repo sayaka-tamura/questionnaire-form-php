@@ -40,7 +40,7 @@
                   <?php
                     if(isset($_SESSION['choice']) && $_SESSION['choice'] == "respond-to-a-survey"){
                       echo "<script>
-                              if ($(this).is(':checked')) {
+                              if ($(radio2).is(':checked')) {
                                 $('.input3-select').slideDown(300)
                               };
                             </script>";
