@@ -7,6 +7,7 @@
     
     require("template/head.php"); 
     var_dump($_SESSION);
+    var_dump($_SESSION['dm']);
   ?>
 
   <body>
@@ -145,15 +146,29 @@
             <div class="input3 my-5">
               <div class="my-4">New Publication Information</div>
               <div class="form-check form-check-inline">
-                <input id="dm-check" type="checkbox" name="dm" value="1" checked="checked"
-                  <?php var_dump($_SESSION['dm']) ?>
+                <input id="dm-check" type="checkbox" name="dm" value="1" checked="checked">
+                  /*
                   <?php if(isset($_SESSION['dm']) && $_SESSION['dm']!="1"): ?>
                     checkOff(); 
                   <?php endif; ?>
-                >
+                  */
                 <label class="form-check-label">Please send me the information</label>
               </div>
             </div>
+            
+    <ul>
+        <li>
+            <label><input type="checkbox" name="cb1">check box off</label>
+        </li>
+        <li>
+            <label><input type="checkbox" name="cb2" checked>check box on</label>
+        </li>
+        <li>
+            <label><input type="checkbox" name="cb3"
+                <?= rand(0, 100)<50 ? 'checked' : '' ?>
+            >check box randum</label>
+        </li>
+    </ul>
 
             <div class="container-contact3-form-btn">
               <input type="submit" value="confirm" name="sub1"  class="contact3-form-btn">
