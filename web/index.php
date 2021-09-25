@@ -39,11 +39,7 @@
                 >
                   <?php
                     if(isset($_SESSION['choice']) && $_SESSION['choice'] == "respond-to-a-survey"){
-                      echo "<script>
-                              if ($('#radio2').is(':checked')) {
-                                $('.input3-select').slideDown(300)
-                              };
-                            </script>";
+                      echo "slidedownRadio();";
                     }
                   ?>
                 <label class="label-radio3" for="radio2">
@@ -175,27 +171,19 @@
       </div>
     </div>
     <div id="dropDownSelect1"></div>
-<!--
-    <script>
-      function checkOff(){
 
-          //チェックボックスの現在のステータスを取得
-          chk_status = $("#dm-check").prop("checked");
-          
-          //取得したステータスが true なら false を、 false なら true をセットする
-          if(chk_status){
-              //チェックボックスをOFFにする（チェックを外す）。
-              $("#dm-check").prop("checked", false);
-          }
-
-      };
-    </script> 
---!>
     <?php 
       require("template/footer.php"); 
 
       // Session End
       session_destroy();
     ?>
+    <script>
+      function slidedownRadio(){
+          if ($('#radio2').is(':checked')) {
+            $('.input3-select').slideDown(300)
+          };
+      }
+    </script>
   </body>
 </html>
