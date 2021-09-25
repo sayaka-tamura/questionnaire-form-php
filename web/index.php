@@ -147,8 +147,8 @@
               <div class="my-4">New Publication Information</div>
               <div class="form-check form-check-inline">
                 <input type="hidden" name="dm" value="off">
-                <input id="dm-check" type="checkbox" name="dm" value="on">
-                <label class="form-check-label" <?php if(isset($_SESSION['dm']) && $_SESSION['dm'] == "on"){echo 'checked="checked"';}?>>Please send me the information</label>
+                <input class="form-check-input" id="dm-check" type="checkbox" name="dm" value="on" <?php if(isset($_SESSION['dm']) && $_SESSION['dm'] == "on"){echo 'checked="checked"';}?>>
+                <label class="form-check-label">Please send me the information</label>
               </div>
             </div>
 
