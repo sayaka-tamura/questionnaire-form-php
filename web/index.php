@@ -139,7 +139,7 @@
             </div>
 
             <div class="wrap-input3 validate-input my-5" data-validate="Message is required">
-              <textarea class="input3" name="message" placeholder="Your Message" cols="40" rows="5"><?php echo $_SESSION["message"]; ?></textarea>
+              <textarea class="input3" name="message" placeholder="Your Message" cols="40" rows="5"><?php if(isset($_SESSION['message'])){echo $_SESSION['message'];} ?></textarea>
               <span class="focus-input3"></span>
             </div>
 
