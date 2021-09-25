@@ -47,7 +47,7 @@
       $dm = $_POST["dm"];
       $message = isset($_POST['message']) ? $_POST['message'] : NULL;
 
-      if($job=="Occupation"){
+      if($job=="occupation"){
         $job = " - ";
       }
 
@@ -72,7 +72,7 @@
       $_SESSION["tec"] = $tec;
       $_SESSION["dm"] = $dm;
       $_SESSION["message"] = $message;
-      
+
 
       //POSTされたデータを整形（前後にあるホワイトスペースを削除）してエスケープ処理
       $name = h(trim($name));
