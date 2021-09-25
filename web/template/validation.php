@@ -38,6 +38,7 @@
   function errorCheck($var){
       //POSTされたデータを変数に格納
       //最初は入力データがないのでこの初期化をしないとエラーとなる
+      $choice = $_POST['choice'];
       $name = isset($_POST['name']) ? $_POST['name'] : NULL;
       $email = isset($_POST['email']) ? $_POST['email'] : NULL;
       $job = isset($_POST['job']) ? $_POST['job'] : NULL;

@@ -21,22 +21,23 @@
 
             <div class="wrap-contact3-form-radio">
               <div class="contact3-form-radio m-r-42">
-                <input class="input-radio3" id="radio1" type="radio" name="choice" value="say-hi" checked="checked">
-                  <!--
-                    <?php if (isset($_SESSION['choice']) && $_SESSION['choice'] != "say-hi"):?>
-                      checkOff();
-                    <?php endif; ?>
-                  --!> 
-                
+                <input class="input-radio3" id="radio1" type="radio" name="choice" value="say-hi"
+                  <?php 
+                    if(!isset($_SESSION['choice'])){echo 'checked="checked"';}
+                    if(isset($_SESSION['choice']) && $_SESSION['choice'] == "say-hi"){echo 'checked="checked"';}
+                  ?>
+                >                
                 <label class="label-radio3" for="radio1">
                   Say Hi
                 </label>
               </div>
 
               <div class="contact3-form-radio">
-                <input class="input-radio3" id="radio2" type="radio" name="choice" value="respond-to-a-survey">
-                  <!-- <?php if (isset($_SESSION['choice']) && $_SESSION['choice'] == "respond-to-a-survey"){echo 'checked';} ?> -->
-                
+                <input class="input-radio3" id="radio2" type="radio" name="choice" value="respond-to-a-survey"
+                  <?php 
+                    if(isset($_SESSION['choice']) && $_SESSION['choice'] == "respond-to-a-survey"){echo 'checked="checked"';}
+                  ?>
+                >                
                 <label class="label-radio3" for="radio2">
                   Respond to a survey
                 </label>
