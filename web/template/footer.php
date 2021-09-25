@@ -13,3 +13,18 @@
   </script>
 <!--===============================================================================================-->
   <script src="js/main.js"></script>
+
+<script>
+function checkOff(){
+
+    //チェックボックスの現在のステータスを取得
+    chk_status = $("#dm-check").prop("checked");
+    
+    //取得したステータスが true なら false を、 false なら true をセットする
+    if(chk_status){
+        //チェックボックスをOFFにする（チェックを外す）。
+        $("#dm-check").prop("checked", false);
+    }
+
+};
+</script> 
