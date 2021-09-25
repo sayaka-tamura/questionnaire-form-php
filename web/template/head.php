@@ -15,6 +15,10 @@
   <link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
   <!--===============================================================================================-->
+  <script src="vendors/jquery/jquery-3.2.1.min.js"></script>
+  <!--===============================================================================================-->
+  <script src="js/main.js"></script>
+  
   <script>
     function slidedownRadio(){
         if ($('#radio2').is(':checked')) {
