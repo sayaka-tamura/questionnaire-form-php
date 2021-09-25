@@ -65,6 +65,7 @@
       }
 
       // Save the value to $_SESSION for Go Back button
+      $_SESSION["choice"] = $choice;
       $_SESSION["name"] = $name;
       $_SESSION["email"] = $email;
       $_SESSION["job"] = $job;
