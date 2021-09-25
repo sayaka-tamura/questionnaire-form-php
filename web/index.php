@@ -17,7 +17,6 @@
             <span class="contact3-form-title">
               Questionary
             </span>
-            <!-- <p>Click "Confirm" button after answering questionary</p> -->
 
             <div class="wrap-contact3-form-radio">
               <div class="contact3-form-radio m-r-42">
