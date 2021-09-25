@@ -94,10 +94,10 @@
               <?php
               foreach($ar_rate as $key=>$value){
                 echo "<div class=\"form-check\">";
-                  echo "<input class=\"form-check-input\" type=\"radio\" name=\"rate2\" value=\"{$key}\" id=\"{$key}\" "; 
+                  echo "<input class=\"form-check-input\" type=\"radio\" name=\"rate2\" value=\"{$key}\" id=\"{$key}+5\" "; 
                     if (isset($_SESSION['rate2']) && $_SESSION['rate2'] == "{$key}"){echo 'checked';}
                   echo ">";
-                  echo "<label class=\"form-check-label\" for=\"{$key}\">".$value."</label>";
+                  echo "<label class=\"form-check-label\" for=\"{$key}+5\">".$value."</label>";
                 echo "</div>";
               }
               ?>
