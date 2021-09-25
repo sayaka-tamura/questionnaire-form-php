@@ -88,6 +88,20 @@
                 }
               ?>
             </div>
+
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+              <label class="form-check-label" for="flexRadioDefault1">
+                Default radio
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+              <label class="form-check-label" for="flexRadioDefault2">
+                Default checked radio
+              </label>
+            </div>
+            
             <div class="input3 input3-select my-5 margin-radio my-5 margin-radio">
               <div class="my-4">How about the book volume?</div>
               <?php
@@ -106,34 +120,34 @@
               <div class="my-4">Programming languages that you have a experience</div>
               <div>
                 <div class="form-check form-check-inline ml-0">
-                  <input class="form-check-input" type="checkbox" name="tec[]" value="PHP"
+                  <input class="form-check-input" id="php" type="checkbox" name="tec[]" value="PHP"
                     <?php if(isset($_SESSION['tec']) && (strpos($_SESSION['tec'], "PHP") === 0)){echo 'checked';} ?>
                   >
-                  <label class="form-check-label">PHP</label>
+                  <label class="form-check-label" for="php">PHP</label>
                 </div>
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="checkbox" name="tec[]" value="Java"
+                  <input class="form-check-input" id="java" type="checkbox" name="tec[]" value="Java"
                     <?php if(isset($_SESSION['tec']) && strpos($_SESSION['tec'], "Java") || (strpos($_SESSION['tec'], "Java") === 0)){echo 'checked';} ?>
                   >
-                  <label class="form-check-label">Java</label>
+                  <label class="form-check-label" for="java">Java</label>
                 </div>
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="checkbox" name="tec[]" value="Ruby"
+                  <input class="form-check-input" id="ruby" type="checkbox" name="tec[]" value="Ruby"
                     <?php if(isset($_SESSION['tec']) && strpos($_SESSION['tec'], "Ruby") || (strpos($_SESSION['tec'], "Ruby") === 0)){echo 'checked';} ?>
                   >
-                  <label class="form-check-label">Ruby</label>
+                  <label class="form-check-label" for="ruby">Ruby</label>
                 </div>
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="checkbox" name="tec[]" value="C#"
+                  <input class="form-check-input" id="c#" type="checkbox" name="tec[]" value="C#"
                     <?php if(isset($_SESSION['tec']) && strpos($_SESSION['tec'], "C#") || (strpos($_SESSION['tec'], "C#") === 0)){echo 'checked';} ?>
                   >
-                  <label class="form-check-label">C#</label>
+                  <label class="form-check-label" for="c#">C#</label>
                 </div>
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="checkbox" name="tec[]" value="Perl"
+                  <input class="form-check-input" id="perl" type="checkbox" name="tec[]" value="Perl"
                     <?php if(isset($_SESSION['tec']) && strpos($_SESSION['tec'], "Perl") || (strpos($_SESSION['tec'], "Perl") === 0)){echo 'checked';} ?>
                   >
-                  <label class="form-check-label">Perl</label>
+                  <label class="form-check-label" for="perl">Perl</label>
                 </div>
               </div>
             </div>
@@ -148,21 +162,8 @@
               <div class="form-check">
                 <input type="hidden" name="dm" value="off">
                 <input class="form-check-input" id="dm-check" type="checkbox" name="dm" value="on" <?php if(isset($_SESSION['dm']) && $_SESSION['dm'] == "on"){echo 'checked="checked"';}?>>
-                <label class="form-check-label">Please send me the information</label>
+                <label class="form-check-label" for="dm-check">Please send me the information</label>
               </div>
-            </div>
-
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-              <label class="form-check-label" for="flexCheckDefault">
-                Default checkbox
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-              <label class="form-check-label" for="flexCheckChecked">
-                Checked checkbox
-              </label>
             </div>
 
             <div class="container-contact3-form-btn">
