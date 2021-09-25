@@ -39,7 +39,7 @@
                 >
                   <?php
                     if(isset($_SESSION['choice']) && $_SESSION['choice'] == "respond-to-a-survey"){
-                      echo "<script>slidedownRadio();</script>";
+                      echo "<script>window.onunload = function(){slidedownRadio();}</script>";
                     }
                   ?>
                 <label class="label-radio3" for="radio2">

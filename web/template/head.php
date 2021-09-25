@@ -23,8 +23,14 @@
         if ($('#radio2').is(':checked')) {
           $('.input3-select').slideDown(300)
         };
-
-        console.log('Goal');
     }
+
+    window.onload = function(){
+      alert('window.onload');
+    };
+
+    window.onpageshow = function(){
+      alert('window.onpageshow');
+    };
   </script>
 </head>
