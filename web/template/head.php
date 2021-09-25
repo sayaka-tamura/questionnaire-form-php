@@ -17,13 +17,14 @@
   <!--===============================================================================================-->
   <script src="vendors/jquery/jquery-3.2.1.min.js"></script>
   <!--===============================================================================================-->
-  <script src="js/main.js"></script>
   
   <script>
     function slidedownRadio(){
         if ($('#radio2').is(':checked')) {
           $('.input3-select').slideDown(300)
         };
+
+        console.log('Goal');
     }
   </script>
 </head>
