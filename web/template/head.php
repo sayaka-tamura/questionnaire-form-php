@@ -19,18 +19,12 @@
   <!--===============================================================================================-->
   
   <script>
-    function slidedownRadio(){
+    window.onunload = function(){};
+    window.onload = function(){
         if ($('#radio2').is(':checked')) {
           $('.input3-select').slideDown(300)
         };
     }
 
-    window.onload = function(){
-      alert('window.onload');
-    };
-
-    window.onpageshow = function(){
-      alert('window.onpageshow');
-    };
   </script>
 </head>
