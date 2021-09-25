@@ -21,22 +21,22 @@
 
             <div class="wrap-contact3-form-radio">
               <div class="contact3-form-radio m-r-42">
-                <input class="input-radio3" id="radio1" type="radio" name="choice" value="say-hi" checked="checked"
+                <input class="input-radio3" id="radio1" type="radio" name="choice" value="say-hi" checked="checked">
                   <!--
                     <?php if (isset($_SESSION['choice']) && $_SESSION['choice'] != "say-hi"):?>
                       checkOff();
                     <?php endif; ?>
                   --!> 
-                >
+                
                 <label class="label-radio3" for="radio1">
                   Say Hi
                 </label>
               </div>
 
               <div class="contact3-form-radio">
-                <input class="input-radio3" id="radio2" type="radio" name="choice" value="respond-to-a-survey"
+                <input class="input-radio3" id="radio2" type="radio" name="choice" value="respond-to-a-survey">
                   <!-- <?php if (isset($_SESSION['choice']) && $_SESSION['choice'] == "respond-to-a-survey"){echo 'checked';} ?> -->
-                >
+                
                 <label class="label-radio3" for="radio2">
                   Respond to a survey
                 </label>
@@ -146,6 +146,7 @@
               <div class="my-4">New Publication Information</div>
               <div class="form-check form-check-inline">
                 <input id="dm-check" type="checkbox" name="dm" value="1" checked="checked"
+                  <?php var_dump($_SESSION['dm']) ?>
                   <?php if(isset($_SESSION['dm']) && $_SESSION['dm']!="1"): ?>
                     checkOff(); 
                   <?php endif; ?>
@@ -163,7 +164,22 @@
       </div>
     </div>
     <div id="dropDownSelect1"></div>
-    
+
+    <script>
+      function checkOff(){
+
+          //チェックボックスの現在のステータスを取得
+          chk_status = $("#dm-check").prop("checked");
+          
+          //取得したステータスが true なら false を、 false なら true をセットする
+          if(chk_status){
+              //チェックボックスをOFFにする（チェックを外す）。
+              $("#dm-check").prop("checked", false);
+          }
+
+      };
+    </script> 
+
     <?php 
       require("template/footer.php"); 
 
