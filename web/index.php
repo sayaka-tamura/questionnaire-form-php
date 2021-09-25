@@ -78,11 +78,11 @@
                 );
 
                 foreach($ar_rate as $key=>$value){
-                  echo "<div class=\"form-check\">";
-                    echo "<input class=\"form-check-input\" type=\"radio\" name=\"rate1\" value=\"{$key}\" id=\"{$key}\" ";
+                  echo "<div class=\"contact3-form-radio\">";
+                    echo "<input class=\"input-radio3\" type=\"radio\" name=\"rate1\" value=\"{$key}\" id=\"{$key}\" ";
                       if (isset($_SESSION['rate1']) && $_SESSION['rate1'] == "{$key}"){echo 'checked';}
                     echo " >";
-                    echo "<label class=\"form-check-label\" for=\"{$key}\">".$value."</label>";
+                    echo "<label class=\"label-radio3\" for=\"{$key}\">".$value."</label>";
                   echo "</div>";
                 }
               ?>
@@ -92,11 +92,11 @@
               <div class="my-4">How about the book volume?</div>
               <?php
               foreach($ar_rate as $key=>$value){
-                echo "<div class=\"form-check\">";
-                  echo "<input class=\"form-check-input\" type=\"radio\" name=\"rate2\" value=\"{$key}\" id=\"{$key}+5\" "; 
+                echo "<div class=\"contact3-form-radio\">";
+                  echo "<input class=\"input-radio3\" type=\"radio\" name=\"rate2\" value=\"{$key}\" id=\"{$key}+5\" "; 
                     if (isset($_SESSION['rate2']) && $_SESSION['rate2'] == "{$key}"){echo 'checked';}
                   echo ">";
-                  echo "<label class=\"form-check-label\" for=\"{$key}+5\">".$value."</label>";
+                  echo "<label class=\"label-radio3\" for=\"{$key}+5\">".$value."</label>";
                 echo "</div>";
               }
               ?>
