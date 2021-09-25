@@ -178,12 +178,5 @@
       // Session End
       session_destroy();
     ?>
-    <script>
-      function slidedownRadio(){
-          if ($('#radio2').is(':checked')) {
-            $('.input3-select').slideDown(300)
-          };
-      }
-    </script>
   </body>
 </html>

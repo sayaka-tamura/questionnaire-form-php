@@ -15,5 +15,11 @@
   <link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
   <!--===============================================================================================-->
-
+  <script>
+    function slidedownRadio(){
+        if ($('#radio2').is(':checked')) {
+          $('.input3-select').slideDown(300)
+        };
+    }
+  </script>
 </head>
