@@ -80,10 +80,10 @@
 
                 foreach($ar_rate as $key=>$value){
                   echo "<div class=\"form-check\">";
-                    echo "<input class=\"form-check-input\" type=\"radio\" name=\"rate1\" value=\"{$key}\" id=\"radio2\" ";
+                    echo "<input class=\"form-check-input\" type=\"radio\" name=\"rate1\" value=\"{$key}\" id=\"{$key}\" ";
                       if (isset($_SESSION['rate1']) && $_SESSION['rate1'] == "{$key}"){echo 'checked';}
                     echo " >";
-                    echo "<label class=\"form-check-label\" for=\"radio2\">".$value."</label>";
+                    echo "<label class=\"form-check-label\" for=\"{$key}\">".$value."</label>";
                   echo "</div>";
                 }
               ?>
@@ -101,7 +101,7 @@
                 Default checked radio
               </label>
             </div>
-            
+
             <div class="input3 input3-select my-5 margin-radio my-5 margin-radio">
               <div class="my-4">How about the book volume?</div>
               <?php
