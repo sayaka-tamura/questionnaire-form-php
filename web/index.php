@@ -89,28 +89,15 @@
               ?>
             </div>
 
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-              <label class="form-check-label" for="flexRadioDefault1">
-                Default radio
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-              <label class="form-check-label" for="flexRadioDefault2">
-                Default checked radio
-              </label>
-            </div>
-
             <div class="input3 input3-select my-5 margin-radio my-5 margin-radio">
               <div class="my-4">How about the book volume?</div>
               <?php
               foreach($ar_rate as $key=>$value){
                 echo "<div class=\"form-check\">";
-                  echo "<input class=\"form-check-input\" type=\"radio\" name=\"rate2\" value=\"{$key}\" id=\"radio2\" "; 
+                  echo "<input class=\"form-check-input\" type=\"radio\" name=\"rate2\" value=\"{$key}\" id=\"{$key}\" "; 
                     if (isset($_SESSION['rate2']) && $_SESSION['rate2'] == "{$key}"){echo 'checked';}
                   echo ">";
-                  echo "<label class=\"form-check-label\" for=\"radio2\">".$value."</label>";
+                  echo "<label class=\"form-check-label\" for=\"{$key}\">".$value."</label>";
                 echo "</div>";
               }
               ?>
@@ -118,7 +105,7 @@
 
             <div class="input3 input3-select my-5 margin-radio my-5">
               <div class="my-4">Programming languages that you have a experience</div>
-              <div>
+              <div class="ml-4">
                 <div class="form-check form-check-inline ml-0">
                   <input class="form-check-input" id="php" type="checkbox" name="tec[]" value="PHP"
                     <?php if(isset($_SESSION['tec']) && (strpos($_SESSION['tec'], "PHP") === 0)){echo 'checked';} ?>
@@ -159,7 +146,7 @@
 
             <div class="input3 my-5">
               <div class="my-4">New Publication Information</div>
-              <div class="form-check">
+              <div class="form-check ml-4">
                 <input type="hidden" name="dm" value="off">
                 <input class="form-check-input" id="dm-check" type="checkbox" name="dm" value="on" <?php if(isset($_SESSION['dm']) && $_SESSION['dm'] == "on"){echo 'checked="checked"';}?>>
                 <label class="form-check-label" for="dm-check">Please send me the information</label>
