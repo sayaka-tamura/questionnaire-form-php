@@ -41,23 +41,9 @@
       $choice = $_POST['choice'];
       $name = isset($_POST['name']) ? $_POST['name'] : NULL;
       $email = isset($_POST['email']) ? $_POST['email'] : NULL;
-      $job = isset($_POST['job']) ? $_POST['job'] : NULL;
-      $rate1 = isset($_POST['rate1']) ? $_POST['rate1'] : NULL;
-      $rate2 = isset($_POST['rate2']) ? $_POST['rate2'] : NULL;
-      $tec =  isset($_POST['tec']) ? $_POST['rate2'] : NULL;
       $dm = $_POST["dm"];
       $message = isset($_POST['message']) ? $_POST['message'] : NULL;
       $flag = true;
-
-      if($job=="occupation"){
-        $job = " - ";
-      }
-
-      if(empty($tec)){
-        $tec = "None";
-      } else {
-        $tec = implode(" ", $_POST["tec"]);
-      }
 
       if($_POST["dm"] == "on"){
         $dm = "Request to send";
@@ -69,10 +55,6 @@
       $_SESSION["choice"] = $choice;
       $_SESSION["name"] = $name;
       $_SESSION["email"] = $email;
-      $_SESSION["job"] = $job;
-      $_SESSION["rate1"] = $rate1;
-      $_SESSION["rate2"] = $rate2;
-      $_SESSION["tec"] = $tec;
       $_SESSION["dm"] = $dm;
       $_SESSION["message"] = $message;
 
@@ -80,19 +62,9 @@
       //POSTされたデータを整形（前後にあるホワイトスペースを削除）してエスケープ処理
       $name = h(trim($name));
       $email = h(trim($email));
-      $job = h(trim($job));
-      $rate1 = h(trim($rate1));
-      $rate2 = h(trim($rate2));
-      $tec = h(trim($tec));
       $message = h(trim($message));
 
-      // 一つでも必須項目が入力されていなかったら submit button を表示しない
-      if(($name == "") || ($email == "") || ($message == "")){
-        $flag = false;
-      }
-
-      $temp_array = array("name" => $name, "email" => $email, "job" => $job, "rate1" => $rate1, "rate2" => $rate2, "tec" => $tec, "dm" => $dm, "message" => $message, "flag"=>$flag);
-
+      // error 表示
       $error = array();
 
       if($name == "") {
@@ -111,12 +83,40 @@
         $error[] = '*メッセージは500文字以内でお願いします。';
       }
 
-      if($rate1 == NULL) {
-        $error[] = '*本の内容の満足度のチェックは必須です。';
-      }
+      // Respond to a servey part
+      if($_POST['choice'] == "respond-to-a-survey"){
+        $job = isset($_POST['job']) ? $_POST['job'] : NULL;
+        $rate1 = isset($_POST['rate1']) ? $_POST['rate1'] : NULL;
+        $rate2 = isset($_POST['rate2']) ? $_POST['rate2'] : NULL;
+        $tec =  isset($_POST['tec']) ? $_POST['rate2'] : NULL;
 
-      if($rate2 == NULL) {
-        $error[] = '*本のボリュームの満足度ののチェックは必須です。';
+        if($job=="occupation"){
+          $job = " - ";
+        }
+
+        if(empty($tec)){
+          $tec = "None";
+        } else {
+          $tec = implode(" ", $_POST["tec"]);
+        }
+
+        $_SESSION["job"] = $job;
+        $_SESSION["rate1"] = $rate1;
+        $_SESSION["rate2"] = $rate2;
+        $_SESSION["tec"] = $tec;
+
+        $job = h(trim($job));
+        $rate1 = h(trim($rate1));
+        $rate2 = h(trim($rate2));
+        $tec = h(trim($tec));
+
+        if($rate1 == NULL) {
+          $error[] = '*本の内容の満足度のチェックは必須です。';
+        }
+
+        if($rate2 == NULL) {
+          $error[] = '*本のボリュームの満足度ののチェックは必須です。';
+        }
       }
 
       if(count($error) > 0){ 
@@ -125,6 +125,18 @@
           echo $value . "<br>";
         }
         echo '</p>';
+      }
+      
+      /* 要変更部分 */
+      // 一つでも必須項目が入力されていなかったら submit button を表示しない
+      if(($name == "") || ($email == "") || ($message == "")){
+        $flag = false;
+      }
+
+      if($_POST['choice'] == "say-hi"){
+        $temp_array = array("name" => $name, "email" => $email, "job" => null, "rate1" => null, "rate2" => null, "tec" => null, "dm" => $dm, "message" => $message, "flag"=>$flag);
+      } else {
+        $temp_array = array("name" => $name, "email" => $email, "job" => $job, "rate1" => $rate1, "rate2" => $rate2, "tec" => $tec, "dm" => $dm, "message" => $message, "flag"=>$flag);
       }
 
       return $temp_array;
