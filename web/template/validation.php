@@ -101,6 +101,10 @@
         $error[] = '*メッセージは500文字以内でお願いします。';
       }
 
+      if($rate1 == NULL) {
+        $error[] = '*項目のチェックは必須です。';
+      }
+
       //↑他、個別検証(rate1, rate2, tec 必須にするには)
       if(isset($_POST['name']) && isset($_POST['email']) && isset($_POST['job'])
           && isset($_POST['rate1']) && isset($_POST['rate2'])  && isset($_POST['tec']) 
