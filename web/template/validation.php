@@ -44,9 +44,10 @@
       $job = isset($_POST['job']) ? $_POST['job'] : NULL;
       $rate1 = isset($_POST['rate1']) ? $_POST['rate1'] : NULL;
       $rate2 = isset($_POST['rate2']) ? $_POST['rate2'] : NULL;
-      $tec = $_POST['tec'];
+      $tec =  isset($_POST['tec']) ? $_POST['rate2'] : NULL;
       $dm = $_POST["dm"];
       $message = isset($_POST['message']) ? $_POST['message'] : NULL;
+      $flag = true;
 
       if($job=="occupation"){
         $job = " - ";
@@ -85,37 +86,45 @@
       $tec = h(trim($tec));
       $message = h(trim($message));
 
-      $temp_array = array("name" => $name, "email" => $email, "job" => $job, "rate1" => $rate1, "rate2" => $rate2, "tec" => $tec, "dm" => $dm, "message" => $message);
+      // 一つでも必須項目が入力されていなかったら submit button を表示しない
+      if(($name == "") || ($email == "") || ($message == "")){
+        $flag = false;
+      }
+
+      $temp_array = array("name" => $name, "email" => $email, "job" => $job, "rate1" => $rate1, "rate2" => $rate2, "tec" => $tec, "dm" => $dm, "message" => $message, "flag"=>$flag);
 
       $error = array();
 
-      if($name == '') {
+      if($name == "") {
         $error[] = '*お名前は必須です。';
       } elseif (preg_match('/\A[[:^cntrl:]]{1,30}\z/u', $name) == 0) {   //制御文字でないことと文字数をチェック
         $error[] = '*お名前は30文字以内でお願いします。';
       }
+      
+      if($email == "") {
+        $error[] = '*e-mail は必須です。';
+      }
 
-      if($message == '') {
+      if($message == "") {
         $error[] = '*メッセージは必須です。';
       }elseif(preg_match('/\A[\r\n[:^cntrl:]]{1,500}\z/u', $message) == 0) {   //制御文字（改行を除く）でないことと文字数をチェック
         $error[] = '*メッセージは500文字以内でお願いします。';
       }
 
       if($rate1 == NULL) {
-        $error[] = '*項目のチェックは必須です。';
+        $error[] = '*本の内容の満足度のチェックは必須です。';
       }
 
-      //↑他、個別検証(rate1, rate2, tec 必須にするには)
-      if(isset($_POST['name']) && isset($_POST['email']) && isset($_POST['job'])
-          && isset($_POST['rate1']) && isset($_POST['rate2'])  && isset($_POST['tec']) 
-          && isset($_POST['dm']) && isset($_POST['message'])) {
-        if(count($error) > 0){ 
-          echo '<p style="color:red;">以下のエラーがあります。</p><p style="color:red;">';
-          foreach($error as $value) {
-            echo $value . "<br>";
-          }
-          echo '</p>';
+      if($rate2 == NULL) {
+        $error[] = '*本のボリュームの満足度ののチェックは必須です。';
+      }
+
+      if(count($error) > 0){ 
+        echo '<p style="color:red;">以下のエラーがあります。</p><p style="color:red;">';
+        foreach($error as $value) {
+          echo $value . "<br>";
         }
+        echo '</p>';
       }
 
       return $temp_array;

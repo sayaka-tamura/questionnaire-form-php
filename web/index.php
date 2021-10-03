@@ -6,6 +6,7 @@
     session_start();
     
     require("template/head.php"); 
+    var_dump($_POST);
     var_dump($_SESSION);
   ?>
 
@@ -43,12 +44,12 @@
               </div>
             </div>
 
-            <div class="wrap-input3 validate-input" data-validate="Name is required">
+            <div class="wrap-input3">
               <input class="input3" type="text" name="name" placeholder="Your Name" value="<?php if(isset($_SESSION['name'])){echo $_SESSION['name'];} ?>">
               <span class="focus-input3"></span>
             </div>
 
-            <div class="wrap-input3 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+            <div class="wrap-input3">
               <input class="input3" type="text" name="email" placeholder="Your Email" value="<?php if(isset($_SESSION['email'])){echo $_SESSION['email'];} ?>">
               <span class="focus-input3"></span>
             </div>
@@ -76,7 +77,7 @@
                   "2" => "Unsatisfied",
                   "1" => "Very Unsatisfied",
                 );
-
+                
                 foreach($ar_rate as $key=>$value){
                   echo "<div class=\"contact3-form-radio\">";
                     echo "<input class=\"input-radio3\" type=\"radio\" name=\"rate1\" value=\"{$key}\" id=\"{$key}\" ";
@@ -107,38 +108,60 @@
               <div class="pl-0">
                 <div class="form-check form-check-inline pl-0">
                   <input class="form-check-input" id="php" type="checkbox" name="tec[]" value="PHP"
-                    <?php if(isset($_SESSION['tec']) && (strpos($_SESSION['tec'], "PHP") === 0)){echo 'checked';} ?>
+                    <?php 
+                      if(!isset($_SESSION['tec'])) :
+                        $_SESSION['tec']=null;
+                      elseif(isset($_SESSION['tec']) && (strpos($_SESSION['tec'], "PHP") === 0)):
+                        echo 'checked';
+                      endif;
+                    ?>
                   >
                   <label class="form-check-label pl-0" for="php">PHP</label>
                 </div>
                 <div class="form-check form-check-inline pl-3">
                   <input class="form-check-input" id="java" type="checkbox" name="tec[]" value="Java"
-                    <?php if(isset($_SESSION['tec']) && strpos($_SESSION['tec'], "Java") || (strpos($_SESSION['tec'], "Java") === 0)){echo 'checked';} ?>
+                    <?php 
+                      if(isset($_SESSION['tec']) && strpos($_SESSION['tec'], "Java") || (strpos($_SESSION['tec'], "Java") === 0)):
+                        echo 'checked';
+                      endif;
+                    ?>
                   >
                   <label class="form-check-label pl-0" for="java">Java</label>
                 </div>
                 <div class="form-check form-check-inline pl-3">
                   <input class="form-check-input" id="ruby" type="checkbox" name="tec[]" value="Ruby"
-                    <?php if(isset($_SESSION['tec']) && strpos($_SESSION['tec'], "Ruby") || (strpos($_SESSION['tec'], "Ruby") === 0)){echo 'checked';} ?>
+                    <?php 
+                      if(isset($_SESSION['tec']) && strpos($_SESSION['tec'], "Ruby") || (strpos($_SESSION['tec'], "Ruby") === 0)):
+                        echo 'checked';
+                      endif;
+                    ?>
                   >
                   <label class="form-check-label pl-0" for="ruby">Ruby</label>
                 </div>
                 <div class="form-check form-check-inline pl-3">
                   <input class="form-check-input" id="c#" type="checkbox" name="tec[]" value="C#"
-                    <?php if(isset($_SESSION['tec']) && strpos($_SESSION['tec'], "C#") || (strpos($_SESSION['tec'], "C#") === 0)){echo 'checked';} ?>
+                    <?php
+                      if(isset($_SESSION['tec']) && strpos($_SESSION['tec'], "C#") || (strpos($_SESSION['tec'], "C#") === 0)):
+                        echo 'checked';
+                      endif;
+                    ?>
                   >
                   <label class="form-check-label pl-0" for="c#">C#</label>
                 </div>
                 <div class="form-check form-check-inline pl-3">
                   <input class="form-check-input" id="perl" type="checkbox" name="tec[]" value="Perl"
-                    <?php if(isset($_SESSION['tec']) && strpos($_SESSION['tec'], "Perl") || (strpos($_SESSION['tec'], "Perl") === 0)){echo 'checked';} ?>
+                    <?php 
+                      if(isset($_SESSION['tec']) && strpos($_SESSION['tec'], "Perl") || (strpos($_SESSION['tec'], "Perl") === 0)):
+                        echo 'checked';
+                      endif;
+                    ?>
                   >
                   <label class="form-check-label pl-0" for="perl">Perl</label>
                 </div>
               </div>
             </div>
 
-            <div class="wrap-input3 validate-input my-5" data-validate="Message is required">
+            <div class="wrap-input3 my-5">
               <textarea class="input3" name="message" placeholder="Your Message" cols="40" rows="5"><?php if(isset($_SESSION['message'])){echo $_SESSION['message'];} ?></textarea>
               <span class="focus-input3"></span>
             </div>

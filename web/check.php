@@ -1,4 +1,8 @@
 <?php
+
+  var_dump($_POST);
+  echo "<br />";
+
   // Session Start
   session_start();
 
@@ -32,6 +36,7 @@
   <?php
     // 入力エラーチェック
     $temp_array = errorCheck($_POST); 
+    var_dump($_SESSION);
   ?>
 
   <body>
@@ -55,11 +60,11 @@
         </tr>
         <tr>
           <td>How satisfied are you with the books?</td>
-          <td><?php echo $ar_rate[$temp_array['rate1']] ?></td>
+          <td><?php echo isset($ar_rate[$temp_array['rate1']]) ? $ar_rate[$temp_array['rate1']]: NULL ?></td>
         </tr>
         <tr>
           <td>How about the book volume?</td>
-          <td><?php echo $ar_rate[$temp_array['rate2']] ?></td>
+          <td><?php echo isset($ar_rate[$temp_array['rate2']]) ? $ar_rate[$temp_array['rate2']]: NULL ?></td>
         </tr>
         <tr>
           <td>Programming languages that you have a experience</td>
@@ -75,7 +80,12 @@
         </tr>
         <tr>
           <td align="right" colspan="2">
-            <input type="submit" value="Submit Answer" name="sub1">
+            <?php
+              $class="";
+              if ($temp_array['flag']==0) $class="d-none";
+            ?>
+            <input type="submit" value="Submit Answer" name="sub1" class="<?php echo $class; ?>" />
+
             <?php
               if (!empty($r) && (strpos($r, $h) !== false)) : // strpos()-> 特定の文字列を含むかをチェック方法
             ?>
@@ -85,7 +95,6 @@
         </tr>
       </table>
     </form>
-
     <?php require("template/footer.php"); ?>
     
   </body>

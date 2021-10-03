@@ -4,6 +4,9 @@
     echo "Ended this process";
     exit;
   }
+
+  // Session Start
+  session_start();
 ?>
 
 <html>
@@ -21,14 +24,14 @@
       }
 
       // 入力値の取得
-      $name = $_POST["name"];
-      $email = $_POST["email"];
-      $job = $_POST["job"];
-      $rate1 = $_POST["rate1"];
-      $rate2 = $_POST["rate2"];
-      $tec = $_POST["tec"];
-      $dm = $_POST["dm"];
-      $message = $_POST["message"];
+      $name = $_SESSION["name"];
+      $email = $_SESSION["email"];
+      $job = $_SESSION["job"];
+      $rate1 = $_SESSION["rate1"];
+      $rate2 = $_SESSION["rate2"];
+      $tec = $_SESSION["tec"];
+      $dm = $_SESSION["dm"];
+      $message = $_SESSION["message"];
 
       $name = h($name);
       $email = h($email);
@@ -58,7 +61,12 @@
 
     <p><?php echo $result_message; ?></p>
 
-    <?php require("template/footer.php"); ?>
+    <?php 
+      require("template/footer.php");
+      
+      // Session End
+      session_destroy();  
+    ?>
 
   </body>
 </html>
