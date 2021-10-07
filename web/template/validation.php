@@ -83,7 +83,13 @@
         $error[] = '*メッセージは500文字以内でお願いします。';
       }
 
-      // Respond to a servey part
+      /* 要変更部分 */
+      // 一つでも必須項目が入力されていなかったら submit button を表示しない
+      if(($name == "") || ($email == "") || ($message == "")){
+        $flag = false;
+      }
+
+      // Start Respond to a servey part
       if($_POST['choice'] == "respond-to-a-survey"){
         $job = isset($_POST['job']) ? $_POST['job'] : NULL;
         $rate1 = isset($_POST['rate1']) ? $_POST['rate1'] : NULL;
@@ -117,8 +123,15 @@
         if($rate2 == NULL) {
           $error[] = '*本のボリュームの満足度ののチェックは必須です。';
         }
-      }
 
+        // 一つでも必須項目が入力されていなかったら submit button を表示しない
+        if(($name == "") || ($email == "") || ($message == "") || ($rate1 == null) ||  ($rate2 == null)  ){
+          $flag = false;
+        }
+      }
+      // End Respond to a servey part
+
+      // Show Error message on the top of confirm page
       if(count($error) > 0){ 
         echo '<p style="color:red;">以下のエラーがあります。</p><p style="color:red;">';
         foreach($error as $value) {
@@ -127,11 +140,6 @@
         echo '</p>';
       }
       
-      /* 要変更部分 */
-      // 一つでも必須項目が入力されていなかったら submit button を表示しない
-      if(($name == "") || ($email == "") || ($message == "")){
-        $flag = false;
-      }
 
       if($_POST['choice'] == "say-hi"){
         $temp_array = array("name" => $name, "email" => $email, "job" => null, "rate1" => null, "rate2" => null, "tec" => null, "dm" => $dm, "message" => $message, "flag"=>$flag);
