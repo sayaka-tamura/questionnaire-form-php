@@ -1,12 +1,29 @@
 <?php
-  // Form データが空の場合は終了
-  if(empty($_POST)){
+  // Session Start
+  session_start();
+
+  if (empty($_SESSION)) {
     echo "Ended this process";
     exit;
   }
 
-  // Session Start
-  session_start();
+  // 接続設定
+  $dbtype = "mysql";
+  $sv = "localhost";
+  $dbname = "questionnaire-form";
+  $user = "root";
+  $pass = "password";
+
+  // DB に接続
+  try {
+    $dsn = "$dbtype:dbname=$dbname;host=$sv";
+    $conn = new PDO($dsn, $user, $pass);
+  } catch (PDOException $e) {
+    print "Connection Error: {$e->getMessage()}";
+    exit;
+  }
+
+  // var_dump($_SESSION);
 ?>
 
 <html>
@@ -23,39 +40,63 @@
         return htmlspecialchars($str, ENT_QUOTES, 'UTF-8');
       }
 
-      // 入力値の取得
-      $name = $_SESSION["name"];
-      $email = $_SESSION["email"];
-      $job = $_SESSION["job"];
-      $rate1 = $_SESSION["rate1"];
-      $rate2 = $_SESSION["rate2"];
-      $tec = $_SESSION["tec"];
-      $dm = $_SESSION["dm"];
-      $message = $_SESSION["message"];
+      // 必須入力値の取得、その後
+      //SESSSION データを整形（前後にあるホワイトスペースを削除）してエスケープ処理      
+      $name = h($_SESSION["name"]);
+      $email = h($_SESSION["email"]);
+      $dm = h($_SESSION["dm"]);
+      $message = h($_SESSION["message"]);
 
-      $name = h($name);
-      $email = h($email);
-      $job = h($job);
-      $rate1 = h($rate1);
-      $rate2 = h($rate2);
-      $tec = h($tec);
-      $dm = h($dm);
-      $message = h($message);
+      // データの追加
+      if($_SESSION['choice'] == "say-hi"){
 
-      // 回答を書き込む準備
-      $line = array($name, $email, $job, $rate1, $rate2, $tec, $dm, $message);
+        $sql = "INSERT INTO answers (name, email, dm, message) VALUES (:name, :email, :dm, :message)";
+    
+        $stmt = $conn->prepare($sql);
 
-      // ファイルへの書き込み
-      
-      $file_name = "answer.csv";
-      $fp = fopen($file_name, "a");
-      $return = fputcsv($fp, $line);
-      fclose($fp);
-      
-      if($return){
-        $result_message = "Thank you for your answer!";
-      }else{
-        $result_message = "Error!!";
+        // 必須項目のセット
+        $stmt->bindParam(":name", $name);
+        $stmt->bindParam(":email", $email);
+        $stmt->bindParam(":dm", $dm);
+        $stmt->bindParam(":message", $message);
+
+        // SQL の実行
+        $stmt->execute();
+
+      } else if ($_SESSION['choice'] == "respond-to-a-survey"){ 
+
+        $sql = "INSERT INTO answers (name, email, job, satisfaction, volume, exp_language, dm, message) VALUES (:name, :email, :job, :rate1, :rate2, :tec, :dm, :message)";
+
+        $stmt = $conn->prepare($sql);
+
+        // 必須項目のセット
+        $stmt->bindParam(":name", $name);
+        $stmt->bindParam(":email", $email);
+        $stmt->bindParam(":dm", $dm);
+        $stmt->bindParam(":message", $message);
+
+        // 任意入力項目の取得
+        $job = h($_SESSION["job"]);
+        $rate1 = h($_SESSION["rate1"]);
+        $rate2 = h($_SESSION["rate2"]);
+        $tec = h($_SESSION["tec"]);
+
+        // 任意項目のセット
+        $stmt->bindParam(":job", $job);
+        $stmt->bindParam(":rate1", $rate1);
+        $stmt->bindParam(":rate2", $rate2);
+        $stmt->bindParam(":tec", $tec);
+
+        // SQL の実行
+        $stmt->execute();
+      }
+
+      // SQL 実行判定
+      $error = $stmt->errorInfo();
+      if ($error[0] != "00000") {
+        $result_message = "データの追加に失敗しました。{$error[2]}";
+      } else {
+        $result_message = "データを追加しました。データ番号：" . $conn->lastInsertId();
       }
     ?>
 

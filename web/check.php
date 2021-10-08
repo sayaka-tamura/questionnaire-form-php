@@ -1,6 +1,5 @@
 <?php
 
-  var_dump($_POST);
   echo "<br />";
 
   // Session Start
@@ -36,7 +35,6 @@
   <?php
     // 入力エラーチェック
     $temp_array = errorCheck($_POST); 
-    var_dump($_SESSION);
   ?>
 
   <body>

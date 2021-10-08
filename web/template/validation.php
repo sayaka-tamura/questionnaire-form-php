@@ -89,8 +89,9 @@
         $flag = false;
       }
 
-      // Start Respond to a servey part
+      // If user checked 'Start Respond to a servey'
       if($_POST['choice'] == "respond-to-a-survey"){
+        $choice  = isset($_POST['choice']) ? $_POST['choice'] : NULL;
         $job = isset($_POST['job']) ? $_POST['job'] : NULL;
         $rate1 = isset($_POST['rate1']) ? $_POST['rate1'] : NULL;
         $rate2 = isset($_POST['rate2']) ? $_POST['rate2'] : NULL;
@@ -106,6 +107,7 @@
           $tec = implode(" ", $_POST["tec"]);
         }
 
+        $_SESSION["choice"] = $choice;
         $_SESSION["job"] = $job;
         $_SESSION["rate1"] = $rate1;
         $_SESSION["rate2"] = $rate2;
