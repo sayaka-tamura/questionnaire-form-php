@@ -22,7 +22,7 @@
   try {
       $db = new PDO($dsn, $db['user'], $db['pass'], $options);
       // return $db;
-      var_dump($db);
+      echo "Suceed DB Connection!";
   } catch (PDOException $e) {
       echo 'Error: ' . h($e->getMessage());
   }
