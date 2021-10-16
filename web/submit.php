@@ -12,6 +12,9 @@
   //DB接続関数を dbconnet.php から呼び出して接続
   $db = dbConnect();
 
+  greeting();
+  var_dump($db);
+  
 /*
   // 接続設定
   $dbtype = "mysql";
@@ -42,6 +45,7 @@
         <!-- 処理結果を表示 -->
 
     <?php
+    /*
       // Sanitize
       function h($str) {
         return htmlspecialchars($str, ENT_QUOTES, 'UTF-8');
@@ -105,6 +109,7 @@
       } else {
         $result_message = "データを追加しました。データ番号：" . $db->lastInsertId();
       }
+      */
     ?>
 
     <p><?php echo $result_message; ?></p>
