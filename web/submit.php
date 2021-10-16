@@ -12,8 +12,7 @@
   //DB接続関数を dbconnet.php から呼び出して接続
   $db = dbConnect();
 
-  greeting();
-  var_dump($db);
+  echo $db;
   
 /*
   // 接続設定
