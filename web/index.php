@@ -7,6 +7,7 @@
     
     require("template/head.php"); 
 
+  /*
     $db = parse_url($_SERVER['CLEARDB_DATABASE_URL']);
     $db['dbname'] = ltrim($db['path'], '/');
     $dsn = "mysql:host={$db['host']};dbname={$db['dbname']};charset=utf8";
@@ -22,9 +23,12 @@
     } catch (PDOException $e) {
         echo 'Error: ' . h($e->getMessage());
     }
+  */
 
-    var_dump($_SERVER['CLEARDB_DATABASE_URL']);
-    var_dump($dsn);
+    var_dump($db);
+    var_dump($db['path']);
+    var_dump($db['host']);
+    var_dump($db['dbname']);
     var_dump($db['user']);
     var_dump($db['pass']);
   ?>
