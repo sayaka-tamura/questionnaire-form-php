@@ -7,6 +7,12 @@
     exit;
   }
 
+  require("template/dbconnect.php");
+
+  //DB接続関数を dbconnet.php から呼び出して接続
+  $db = dbConnect();
+
+/*
   // 接続設定
   $dbtype = "mysql";
   $sv = "localhost";
@@ -24,6 +30,7 @@
   }
 
   // var_dump($_SESSION);
+*/
 ?>
 
 <html>
@@ -52,7 +59,7 @@
 
         $sql = "INSERT INTO answers (name, email, dm, message) VALUES (:name, :email, :dm, :message)";
     
-        $stmt = $conn->prepare($sql);
+        $stmt = $db->prepare($sql);
 
         // 必須項目のセット
         $stmt->bindParam(":name", $name);
@@ -67,7 +74,7 @@
 
         $sql = "INSERT INTO answers (name, email, job, satisfaction, volume, exp_language, dm, message) VALUES (:name, :email, :job, :rate1, :rate2, :tec, :dm, :message)";
 
-        $stmt = $conn->prepare($sql);
+        $stmt = $db->prepare($sql);
 
         // 必須項目のセット
         $stmt->bindParam(":name", $name);
@@ -96,7 +103,7 @@
       if ($error[0] != "00000") {
         $result_message = "データの追加に失敗しました。{$error[2]}";
       } else {
-        $result_message = "データを追加しました。データ番号：" . $conn->lastInsertId();
+        $result_message = "データを追加しました。データ番号：" . $db->lastInsertId();
       }
     ?>
 
