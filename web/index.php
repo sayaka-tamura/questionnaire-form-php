@@ -7,10 +7,9 @@
     
     require("template/head.php"); 
 
-  
+    //DB接続関数を dbconnet.php から呼び出して接続
     $db = parse_url($_SERVER['CLEARDB_DATABASE_URL']);
     $db['dbname'] = ltrim($db['path'], '/');
-    /*
     $dsn = "mysql:host={$db['host']};dbname={$db['dbname']};charset=utf8";
     $options = array(
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
@@ -20,19 +19,11 @@
 
     try {
         $db = new PDO($dsn, $db['user'], $db['pass'], $options);
-        return $db;
+        // return $db;
+        var_dump($db);
     } catch (PDOException $e) {
         echo 'Error: ' . h($e->getMessage());
     }
-  */
-
-    var_dump($_SERVER['CLEARDB_DATABASE_URL']);
-    var_dump($db);
-    var_dump($db['path']);
-    var_dump($db['host']);
-    var_dump($db['dbname']);
-    var_dump($db['user']);
-    var_dump($db['pass']);
   ?>
 
   <body>
