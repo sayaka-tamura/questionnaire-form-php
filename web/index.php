@@ -25,6 +25,7 @@
     }
   */
 
+    var_dump($_SERVER['CLEARDB_DATABASE_URL']);
     var_dump($db);
     var_dump($db['path']);
     var_dump($db['host']);
