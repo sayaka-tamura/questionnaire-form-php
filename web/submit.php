@@ -21,33 +21,12 @@
 
   try {
       $db = new PDO($dsn, $db['user'], $db['pass'], $options);
-      // return $db;
-      echo "Suceed DB Connection!";
   } catch (PDOException $e) {
       echo 'Error: ' . h($e->getMessage());
   }
   
   // $db = dbConnect();  
 
-/*
-  // 接続設定
-  $dbtype = "mysql";
-  $sv = "localhost";
-  $dbname = "questionnaire-form";
-  $user = "root";
-  $pass = "password";
-
-  // DB に接続
-  try {
-    $dsn = "$dbtype:dbname=$dbname;host=$sv";
-    $conn = new PDO($dsn, $user, $pass);
-  } catch (PDOException $e) {
-    print "Connection Error: {$e->getMessage()}";
-    exit;
-  }
-
-  // var_dump($_SESSION);
-*/
 ?>
 
 <html>
@@ -59,7 +38,7 @@
         <!-- 処理結果を表示 -->
 
     <?php
-    /*
+    
       // Sanitize
       function h($str) {
         return htmlspecialchars($str, ENT_QUOTES, 'UTF-8');
@@ -123,7 +102,7 @@
       } else {
         $result_message = "データを追加しました。データ番号：" . $db->lastInsertId();
       }
-      */
+      
     ?>
 
     <p><?php echo $result_message; ?></p>
