@@ -17,15 +17,14 @@
         PDO::MYSQL_ATTR_USE_BUFFERED_QUERY =>true,
     );
 
-    var_dump($db['host']);
-    var_dump($db['dbname']);
+    var_dump($dsn);
     var_dump($db['user']);
     var_dump($db['pass']);
 
     try {
         $db = new PDO($dsn, $db['user'], $db['pass'], $options);
         // return $db;
-        var_dump($db);
+        echo '接続成功!!';
     } catch (PDOException $e) {
         echo 'Error: ' . h($e->getMessage());
     }
