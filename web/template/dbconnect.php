@@ -16,6 +16,7 @@
 
     try {
         $db = new PDO($dsn, $db['user'], $db['pass'], $options);
+        echo "接続成功！";
         return $db;
     } catch (PDOException $e) {
         echo 'Error: ' . h($e->getMessage());
