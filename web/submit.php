@@ -27,6 +27,7 @@
   }
   */
 
+  greeting();
   $db = dbConnect();  
 
 ?>
