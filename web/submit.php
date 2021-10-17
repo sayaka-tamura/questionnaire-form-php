@@ -7,9 +7,6 @@
     exit;
   }
 
-  require("template/dbconnect.php");
-
-  /*
   //DB接続関数を dbconnet.php から呼び出して接続
   $db = parse_url($_SERVER['CLEARDB_DATABASE_URL']);
   $db['dbname'] = ltrim($db['path'], '/');
@@ -25,10 +22,6 @@
   } catch (PDOException $e) {
       echo 'Error: ' . h($e->getMessage());
   }
-  */
-
-  greeting();
-  $db = dbConnect();  
 
 ?>
 

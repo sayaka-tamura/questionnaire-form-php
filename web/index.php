@@ -6,9 +6,6 @@
     session_start();
     
     require("template/head.php"); 
-    require("template/dbconnect.php");
-    greeting();
-    $db = dbConnect();  
   ?>
 
   <body>
