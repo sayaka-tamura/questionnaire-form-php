@@ -2,6 +2,10 @@
 <html lang="en">
 
   <?php
+    
+    # クリックジャッキング対策
+    header('X-FRAME-OPTIONS: SAMEORIGIN');
+
     // Javascriptからクッキーへアクセス出来ないように設定
     ini_set("session.cookie_httponly", 1);
     
