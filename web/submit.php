@@ -1,4 +1,7 @@
 <?php
+  // Javascriptからクッキーへアクセス出来ないように設定
+  ini_set("session.cookie_httponly", 1);
+
   // Session Start
   session_start();
 
