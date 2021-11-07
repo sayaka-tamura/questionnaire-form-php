@@ -6,6 +6,9 @@
     // Session Start
     session_start();
 
+    //文字コード指定
+    header("Content-type: text/html; charset=utf-8");
+
     // To avoid Session Hijack
     session_regenerate_id(true);
 
