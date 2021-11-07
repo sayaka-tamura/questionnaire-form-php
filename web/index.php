@@ -7,7 +7,7 @@
     session_start();
 
     // To avoid Session Hijack
-    session_regenerate_id(true);
+    // session_regenerate_id(true);
 
     // For countermeasure of CSRF
     // 疑似乱数のバイト文字列(16バイト)を生成

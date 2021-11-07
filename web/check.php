@@ -10,7 +10,7 @@
   echo "<br />";
 
   // To avoid Session Hijack
-  session_regenerate_id(true);
+  // session_regenerate_id(true);
 
   var_dump($_SESSION);
 
