@@ -18,9 +18,6 @@
     // セッション変数設定
     $_SESSION['csrf_token'] = $csrf_token;
 
-    echo "$_SESSION'csrf_token': ".$_SESSION["csrf_token"];
-    print('session_id()は '.session_id().' です。<br>');
-
     require("template/head.php"); 
   ?>
 

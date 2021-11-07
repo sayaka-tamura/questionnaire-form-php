@@ -3,9 +3,6 @@
   // Session Start
   session_start();
 
-  // To avoid Session Hijack
-  session_regenerate_id(true);
-
   if (empty($_SESSION)) {
     echo "Ended this process";
     exit;
