@@ -37,9 +37,10 @@
     // 入力エラーチェック
     $temp_array = errorCheck($_POST); 
 
-    echo "Choice : ".$_SESSION["choice"];
-    echo "<br />";
-    echo "$_SESSION after session_regenerate_id : ".$_SESSION;
+    echo "Session Info <br />";
+    foreach( $_SESSION as $key=>$Value){
+        echo "$key => $Value<br>";
+    }
   ?>
 
   <body>
