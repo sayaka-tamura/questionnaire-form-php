@@ -6,6 +6,7 @@
   session_start();
 
   var_dump($_SESSION);
+  echo "Choice : ".$_SESSION["choice"];
   echo "<br />";
 
   // To avoid Session Hijack
