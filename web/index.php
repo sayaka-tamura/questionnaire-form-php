@@ -6,20 +6,14 @@
     // Session Start
     session_start();
 
-    //文字コード指定
-    header("Content-type: text/html; charset=utf-8");
-
     // To avoid Session Hijack
     session_regenerate_id(true);
 
+    // For countermeasure of CSRF
     // 疑似乱数のバイト文字列(16バイト)を生成
     $token_byte = openssl_random_pseudo_bytes(16);
-    echo "Token Byte: ".$token_byte;
-    
     //バイナリのデータを16進表現に変換
     $csrf_token = bin2hex($token_byte);
-    echo "<br />";
-    echo "CSRF Token: ".$csrf_token;
 
     // セッション変数設定
     $_SESSION['csrf_token'] = $csrf_token;
@@ -32,6 +26,10 @@
       <div class="container-contact3">
         <div class="wrap-contact3">
           <form method="POST" action="check.php" class="contact3-form validate-form">
+          
+            <!-- 生成したランダムな文字列をトークン文字列に設定：入力データとして”check.php”に送る -->
+            <input type="hidden" name="csrf_token" value="<?=$csrf_token?>">
+            
             <span class="contact3-form-title">
               Questionary
             </span>

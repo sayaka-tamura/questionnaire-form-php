@@ -82,10 +82,16 @@
         <tr>
           <td align="right" colspan="2">
             <?php
-              $class="";
-              if ($temp_array['flag']==0) $class="d-none";
+              // 必須項目に記載がなければ submit ボタンを非表示
+              $class=""; 
+              if ($temp_array['flag']==0) {$class="d-none";}
             ?>
-            <input type="submit" value="Submit Answer" name="sub1" class="<?php echo $class; ?>" />
+            <?php
+              // CSRF 対策
+              if (isset($_POST["csrf_token"])&& $_POST["csrf_token"] === $_SESSION['csrf_token']) {
+            ?>
+              <input type="submit" value="Submit Answer" name="sub1" class="<?php echo $class; ?>" />
+            <?php } ?>
 
             <?php
               if (!empty($r) && (strpos($r, $h) !== false)) : // strpos()-> 特定の文字列を含むかをチェック方法
