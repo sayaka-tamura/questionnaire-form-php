@@ -89,13 +89,14 @@
             
             <?php
               echo "$_POST'csrf_token'".$_POST["csrf_token"];
+              echo "<br />";
               echo "$_SESSION'csrf_token'".$_SESSION["csrf_token"];
               /**
               // CSRF 対策
               if (isset($_POST["csrf_token"])&& $_POST["csrf_token"] === $_SESSION['csrf_token']) {
               **/
             ?>
-            
+
               <input type="submit" value="Submit Answer" name="sub1" class="<?php echo $class; ?>" />
             <?php // } ?>
             
