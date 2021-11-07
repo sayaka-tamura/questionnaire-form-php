@@ -37,12 +37,14 @@
     // 入力エラーチェック
     $temp_array = errorCheck($_POST); 
 
-    echo "$_SESSION'csrf_token': ".$_SESSION["csrf_token"];
+    echo "SESSION csrf_token': ".$_SESSION["csrf_token"]."<br />";
 
     echo "POST Info <br />";
     foreach( $_POST as $key=>$Value){
         echo "$key => $Value<br>";
     }
+
+    echo "<br />";
 
     echo "Session Info <br />";
     foreach( $_SESSION as $key=>$Value){
