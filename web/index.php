@@ -30,7 +30,7 @@
           <form method="POST" action="check.php" class="contact3-form validate-form">
 
             <!-- 生成したランダムな文字列をトークン文字列に設定：入力データとして”check.php”に送る -->
-            <input type="hidden" name="csrf_token" value="<?=$csrf_token?>">
+            <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf-token']; ?>">
             
             <span class="contact3-form-title">
               Questionary
