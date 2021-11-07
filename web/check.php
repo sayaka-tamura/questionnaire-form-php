@@ -1,18 +1,10 @@
 <?php
 
-  echo "<br />";
-
   // Session Start
   session_start();
 
-  var_dump($_SESSION);
-  echo "Choice : ".$_SESSION["choice"];
-  echo "<br />";
-
   // To avoid Session Hijack
-  // session_regenerate_id(true);
-
-  var_dump($_SESSION);
+  session_regenerate_id(true);
 
   // Form データが空の場合は終了
   if(empty($_POST)){
@@ -44,6 +36,10 @@
   <?php
     // 入力エラーチェック
     $temp_array = errorCheck($_POST); 
+
+    echo "Choice : ".$_SESSION["choice"];
+    echo "<br />";
+    echo "$_SESSION after session_regenerate_id : ".$_SESSION;
   ?>
 
   <body>
