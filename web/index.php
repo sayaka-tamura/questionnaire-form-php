@@ -3,12 +3,9 @@
 
   <?php
     
-    # クリックジャッキング対策
-    header('X-FRAME-OPTIONS: SAMEORIGIN');
-    
     // Session Start
     session_start();
-    
+
     require("template/head.php"); 
   ?>
 
