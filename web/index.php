@@ -9,6 +9,18 @@
     // To avoid Session Hijack
     session_regenerate_id(true);
 
+    // 疑似乱数のバイト文字列(16バイト)を生成
+    $token_byte = openssl_random_pseudo_bytes(16);
+    var_dump($token_byte);
+    
+    //バイナリのデータを16進表現に変換
+    $csrf_token = bin2hex($token_byte);
+    echo "<br />";
+    var_dump($csrf_token);
+
+    // セッション変数設定
+    $_SESSION['csrf_token'] = $csrf_token;
+
     require("template/head.php"); 
   ?>
 
