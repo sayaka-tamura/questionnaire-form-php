@@ -37,8 +37,7 @@
     // 入力エラーチェック
     $temp_array = errorCheck($_POST); 
 
-    echo "SESSION csrf_token': ".$_SESSION["csrf_token"]."<br />";
-    echo "SESSION test': ".$_SESSION["test"]."<br />";
+    print('session_id()は '.session_id().' です。<br>');
 
     echo "POST Info <br />";
     foreach( $_POST as $key=>$Value){
