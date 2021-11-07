@@ -86,14 +86,16 @@
               $class=""; 
               if ($temp_array['flag']==0) {$class="d-none";}
             ?>
-            /**
+            
             <?php
+              /**
               // CSRF 対策
               if (isset($_POST["csrf_token"])&& $_POST["csrf_token"] === $_SESSION['csrf_token']) {
+              **/
             ?>
-            **/
+            
               <input type="submit" value="Submit Answer" name="sub1" class="<?php echo $class; ?>" />
-            // <?php } ?>
+            <?php // } ?>
             
             <?php
               if (!empty($r) && (strpos($r, $h) !== false)) : // strpos()-> 特定の文字列を含むかをチェック方法
