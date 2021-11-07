@@ -5,8 +5,13 @@
   // Session Start
   session_start();
 
+  var_dump($_SESSION);
+  echo "<br />";
+
   // To avoid Session Hijack
-  // session_regenerate_id(true);
+  session_regenerate_id(true);
+
+  var_dump($_SESSION);
 
   // Form データが空の場合は終了
   if(empty($_POST)){
