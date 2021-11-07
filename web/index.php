@@ -6,6 +6,9 @@
     // Session Start
     session_start();
 
+    // To avoid Session Hijack
+    session_regenerate_id(true);
+
     require("template/head.php"); 
   ?>
 

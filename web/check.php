@@ -5,6 +5,9 @@
   // Session Start
   session_start();
 
+  // To avoid Session Hijack
+  session_regenerate_id(true);
+
   // Form データが空の場合は終了
   if(empty($_POST)){
     echo "Ended Process";
