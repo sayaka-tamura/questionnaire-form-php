@@ -2,24 +2,30 @@
 <html lang="en">
 
   <?php
-    
-    // Session Start
-    session_start();
 
-    // To avoid Session Hijack
-    session_regenerate_id(true);
+    if (isset($_POST['sub1'])) {
+      // Session Start
+      session_start();
+    } else {
+        session_destroy();
+        session_start();
 
-    // For countermeasure of CSRF
-    // 疑似乱数のバイト文字列(16バイト)を生成
-    $token_byte = openssl_random_pseudo_bytes(16);
-    //バイナリのデータを16進表現に変換
-    $csrf_token = bin2hex($token_byte);
+        // To avoid Session Hijack
+        session_regenerate_id(true);
 
-    // セッション変数設定
-    $_SESSION['csrf_token'] = $csrf_token;
+        // For countermeasure of CSRF
+        // 疑似乱数のバイト文字列(16バイト)を生成
+        $token_byte = openssl_random_pseudo_bytes(16);
+        //バイナリのデータを16進表現に変換
+        $csrf_token = bin2hex($token_byte);
 
-    echo "$_SESSION'csrf_token': ".$_SESSION["csrf_token"]."<br />";
-    print('session_id()は '.session_id().' です。<br>');
+        // セッション変数設定
+        $_SESSION['csrf_token'] = $csrf_token;
+
+        echo "$_SESSION'csrf_token': ".$_SESSION["csrf_token"]."<br />";
+        print('session_id()は '.session_id().' です。<br>');
+
+    }
 
     require("template/head.php"); 
   ?>
