@@ -38,6 +38,7 @@
     $temp_array = errorCheck($_POST); 
 
     echo "SESSION csrf_token': ".$_SESSION["csrf_token"]."<br />";
+    echo "SESSION test': ".$_SESSION["test"]."<br />";
 
     echo "POST Info <br />";
     foreach( $_POST as $key=>$Value){

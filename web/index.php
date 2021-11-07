@@ -18,6 +18,7 @@
     // セッション変数設定
     $_SESSION['csrf_token'] = $csrf_token;
 
+    $_SESSION['test']= "Hello world!";
     echo "$_SESSION'csrf_token': ".$_SESSION["csrf_token"];
 
     require("template/head.php"); 
@@ -30,7 +31,7 @@
           <form method="POST" action="check.php" class="contact3-form validate-form">
 
             <!-- 生成したランダムな文字列をトークン文字列に設定：入力データとして”check.php”に送る -->
-            <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf-token']; ?>">
+            <input type="hidden" name="csrf_token" value="<?=$csrf_token?>">
             
             <span class="contact3-form-title">
               Questionary
