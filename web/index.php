@@ -13,18 +13,6 @@
         // To avoid Session Hijack
         session_regenerate_id(true);
 
-        // For countermeasure of CSRF
-        // 疑似乱数のバイト文字列(16バイト)を生成
-        $token_byte = openssl_random_pseudo_bytes(16);
-        //バイナリのデータを16進表現に変換
-        $csrf_token = bin2hex($token_byte);
-
-        // セッション変数設定
-        $_SESSION['csrf_token'] = $csrf_token;
-
-        echo "$_SESSION'csrf_token': ".$_SESSION["csrf_token"]."<br />";
-        print('session_id()は '.session_id().' です。<br>');
-
     }
 
     require("template/head.php"); 
@@ -35,9 +23,6 @@
       <div class="container-contact3">
         <div class="wrap-contact3">
           <form method="POST" action="check.php" class="contact3-form validate-form">
-
-            <!-- 生成したランダムな文字列をトークン文字列に設定：入力データとして”check.php”に送る -->
-            <input type="hidden" name="csrf_token" value="<?=$csrf_token?>">
             
             <span class="contact3-form-title">
               Questionary

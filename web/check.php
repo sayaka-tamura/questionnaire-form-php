@@ -33,20 +33,6 @@
   <?php
     // 入力エラーチェック
     $temp_array = errorCheck($_POST); 
-
-    print('session_id()は '.session_id().' です。<br>');
-
-    echo "POST Info <br />";
-    foreach( $_POST as $key=>$Value){
-        echo "$key => $Value<br>";
-    }
-
-    echo "<br />";
-
-    echo "Session Info <br />";
-    foreach( $_SESSION as $key=>$Value){
-        echo "$key => $Value<br>";
-    }
   ?>
 
   <body>
@@ -95,19 +81,8 @@
               $class=""; 
               if ($temp_array['flag']==0) {$class="d-none";}
             ?>
-            
-            <?php
-              echo "POST csrf_token: ".$_POST["csrf_token"];
-              echo "<br />";
-              echo "SESSION csrf_token: ".$_SESSION["csrf_token"];
-              /**
-              // CSRF 対策
-              if (isset($_POST["csrf_token"])&& $_POST["csrf_token"] === $_SESSION['csrf_token']) {
-              **/
-            ?>
 
               <input type="submit" value="Submit Answer" name="sub1" class="<?php echo $class; ?>" />
-            <?php // } ?>
             
             <?php
               if (!empty($r) && (strpos($r, $h) !== false)) : // strpos()-> 特定の文字列を含むかをチェック方法
