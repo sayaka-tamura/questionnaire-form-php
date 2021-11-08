@@ -24,7 +24,6 @@
 
         echo "$_SESSION'csrf_token': ".$_SESSION["csrf_token"]."<br />";
         print('session_id()は '.session_id().' です。<br>');
-        echo "現在のセッションデータは　　". session_save_path() ."に保存されています。<br>";
 
     }
 
