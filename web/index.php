@@ -25,12 +25,25 @@
         echo "$_SESSION'csrf_token': ".$_SESSION["csrf_token"]."<br />";
         print('session_id()は '.session_id().' です。<br>');
 
+        if (empty($_SESSION['count'])) {
+          $_SESSION['count'] =  1;
+        } else {
+          $_SESSION['count']++;
+        }
+
     }
 
     require("template/head.php"); 
   ?>
 
   <body>
+  <p>
+  こんにちは、あなたがこのページに来たのは  <?php  echo $_SESSION ['count' ]; ?>  回目ですね。
+  </p>
+  <p>
+  続けるには、<a href="nextpage.php?< ?php echo  htmlspecialchars (SID ); ?>" >ここをクリック</A>
+  してください。
+  </p>
     <div class="bg-contact3" style="background-image: url('images/bg-01.jpg');">
       <div class="container-contact3">
         <div class="wrap-contact3">
