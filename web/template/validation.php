@@ -68,19 +68,19 @@
       $error = array();
 
       if($name == "") {
-        $error[] = '*お名前は必須です。';
+        $error[] = '* お名前は必須です。';
       } elseif (preg_match('/\A[[:^cntrl:]]{1,30}\z/u', $name) == 0) {   //制御文字でないことと文字数をチェック
-        $error[] = '*お名前は30文字以内でお願いします。';
+        $error[] = '* お名前は30文字以内でお願いします。';
       }
       
       if($email == "") {
-        $error[] = '*e-mail は必須です。';
+        $error[] = '* e-mail は必須です。';
       }
 
       if($message == "") {
-        $error[] = '*メッセージは必須です。';
+        $error[] = '* メッセージは必須です。';
       }elseif(preg_match('/\A[\r\n[:^cntrl:]]{1,500}\z/u', $message) == 0) {   //制御文字（改行を除く）でないことと文字数をチェック
-        $error[] = '*メッセージは500文字以内でお願いします。';
+        $error[] = '* メッセージは500文字以内でお願いします。';
       }
 
       /* 要変更部分 */
@@ -119,11 +119,11 @@
         $tec = h(trim($tec));
 
         if($rate1 == NULL) {
-          $error[] = '*本の内容の満足度のチェックは必須です。';
+          $error[] = '* 本の内容の満足度のチェックは必須です。';
         }
 
         if($rate2 == NULL) {
-          $error[] = '*本のボリュームの満足度ののチェックは必須です。';
+          $error[] = '* 本のボリュームの満足度ののチェックは必須です。';
         }
 
         // 一つでも必須項目が入力されていなかったら submit button を表示しない
@@ -135,7 +135,7 @@
 
       // Show Error message on the top of confirm page
       if(count($error) > 0){ 
-        echo '<p style="color:red;">以下のエラーがあります。</p><p style="color:red;">';
+        echo '<p class="text-white">以下のエラーがあります。</p><p class="text-white">';
         foreach($error as $value) {
           echo $value . "<br>";
         }

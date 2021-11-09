@@ -1,58 +1,60 @@
 <?php
 
-  // Session Start
-  session_start();
+// Session Start
+session_start();
 
-  // Form データが空の場合は終了
-  if(empty($_POST)){
-    echo "Ended Process";
-    exit;
-  }
+// Form データが空の場合は終了
+if (empty($_POST)) {
+  echo "Ended Process";
+  exit;
+}
 
-  // Importing info for "Go Back Button"
-  $h = $_SERVER['HTTP_HOST'];
-  $r = $_SERVER['HTTP_REFERER'];
+// Importing info for "Go Back Button"
+$h = $_SERVER['HTTP_HOST'];
+$r = $_SERVER['HTTP_REFERER'];
 
-  require("template/validation.php");
-  //POSTされたデータをチェック
-  $_POST = checkInput($_POST);
+require("template/validation.php");
+//POSTされたデータをチェック
+$_POST = checkInput($_POST);
 
-  // 評価用数値と文字列の関連付け
-  $ar_rate = array(
-    "5" => "Very Satisfied",
-    "4" => "Satisfied",
-    "3" => "Normal",
-    "2" => "Unsatisfied",
-    "1" => "Very Unsatisfied",
-  );
+// 評価用数値と文字列の関連付け
+$ar_rate = array(
+  "5" => "Very Satisfied",
+  "4" => "Satisfied",
+  "3" => "Normal",
+  "2" => "Unsatisfied",
+  "1" => "Very Unsatisfied",
+);
 ?>
 <?php
-  require("template/head.php"); 
+require("template/head.php");
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 
-  <?php require("template/head.php"); ?>
-  <?php
-    // 入力エラーチェック
-    $temp_array = errorCheck($_POST); 
-  ?>
+<?php require("template/head.php"); ?>
 
-  <body>
-    <div class="bg-contact3" style="background-image: url('images/bg-01.jpg');">
-      <div class="container-contact3">
-        <div class="wrap-contact3">
+<body>
+  <div class="bg-contact3" style="background-image: url('images/bg-01.jpg');">
+    <div class="container-contact3">
+      <div class="wrap-contact3">
 
-          <span class="contact3-form-title">
-            Questionary
-          </span>
+        <span class="contact3-form-title">
+          Questionary
+        </span>
 
-          <p>Please Confirm Your Answer</p>
+        <?php
+        // 入力エラーチェック
+        $temp_array = errorCheck($_POST);
+        ?>
 
-          <!-- アンケート回答の確認表示 -->
-          <form method="POST" action="submit.php">
-            <table border="1">
+        <p class="mt-2">Please Confirm Your Answer</p>
+
+        <!-- アンケート回答の確認表示 -->
+        <form method="POST" action="submit.php">
+          <table class="table table-bordered table_border_radius text-white">
+            <tbody>
               <tr>
                 <td>Name</td>
                 <td><?php echo $temp_array['name'] ?></td>
@@ -67,11 +69,11 @@
               </tr>
               <tr>
                 <td>How satisfied are you with the books?</td>
-                <td><?php echo isset($ar_rate[$temp_array['rate1']]) ? $ar_rate[$temp_array['rate1']]: NULL ?></td>
+                <td><?php echo isset($ar_rate[$temp_array['rate1']]) ? $ar_rate[$temp_array['rate1']] : NULL ?></td>
               </tr>
               <tr>
                 <td>How about the book volume?</td>
-                <td><?php echo isset($ar_rate[$temp_array['rate2']]) ? $ar_rate[$temp_array['rate2']]: NULL ?></td>
+                <td><?php echo isset($ar_rate[$temp_array['rate2']]) ? $ar_rate[$temp_array['rate2']] : NULL ?></td>
               </tr>
               <tr>
                 <td>Programming languages that you have a experience</td>
@@ -85,35 +87,39 @@
                 <td>Your Message</td>
                 <td><?php echo nl2br($temp_array['message']) ?></td>
               </tr>
-              <tr>
-                <td align="right" colspan="2">
-                  <?php
-                    // 必須項目に記載がなければ submit ボタンを非表示
-                    $class=""; 
-                    if ($temp_array['flag']==0) {$class="d-none";}
-                  ?>
+            </tbody>
+          </table>
+          <div>
+            <?php
+            // 必須項目に記載がなければ submit ボタンを非表示
+            $class = "";
+            if ($temp_array['flag'] == 0) {
+              $class = "d-none";
+            }
+            ?>
+            <input type="submit" value="Submit Answer" name="sub1" class="<?php echo $class; ?> contact3-form-btn float-left mr-3" />
 
-                    <input type="submit" value="Submit Answer" name="sub1" class="<?php echo $class; ?>" />
-                  
-                  <?php
-                    if (!empty($r) && (strpos($r, $h) !== false)) : // strpos()-> 特定の文字列を含むかをチェック方法
-                  ?>
-                    <input type="button" class="form-control mt-3 btn btn-info" value="Go Back" onclick="location.href='<?= $r ?>'">
-                  <?php endif ?>
-                </td>
-              </tr>
-            </table>
-          </form>
-          <?php require("template/footer.php"); ?>
+            <?php
+            // Check HTTP_REFERER
+            if (!empty($r) && (strpos($r, $h) !== false)) : // strpos()-> 特定の文字列を含むかをチェック方法
+            ?>
 
-        </div>
+            <input type="button" class="mt-3 contact3-form-btn" value="Go Back" onclick="location.href='<?= $r ?>'">
+            
+            <?php endif ?>
+          </div>
+        </form>
+        <?php require("template/footer.php"); ?>
+
       </div>
     </div>
-    <?php 
-      require("template/footer.php"); 
+  </div>
+  <?php
+  require("template/footer.php");
 
-      // Session End
-      session_destroy();
-    ?>
-  </body>
+  // Session End
+  session_destroy();
+  ?>
+</body>
+
 </html>

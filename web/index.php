@@ -7,7 +7,7 @@
       // Session Start
       session_start();
     } else {
-        session_destroy();
+        // session_destroy();
         session_start();
 
         // To avoid Session Hijack
