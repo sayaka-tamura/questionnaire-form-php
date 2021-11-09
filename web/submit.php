@@ -109,7 +109,7 @@ try {
 
         ?>
 
-        <p><?php echo $result_message; ?></p>
+        <p class="text-white"><?php echo $result_message; ?></p>
 
         <?php
         require("template/footer.php");
