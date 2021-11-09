@@ -118,7 +118,7 @@ require("template/head.php");
   require("template/footer.php");
 
   // Session End
-  session_destroy();
+  // session_destroy();
   ?>
 </body>
 
