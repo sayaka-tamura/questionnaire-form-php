@@ -103,8 +103,8 @@ try {
         if ($error[0] != "00000") {
           $result_message = "データの追加に失敗しました。{$error[2]}";
         } else {
-          $result_message = "データを追加しました。データ番号：" . $db->lastInsertId() . "<br/>";
-          // $result_message += "Thank you for your cooperation!";
+          $result_message = "データを追加しました。データ番号：" . $db->lastInsertId() . "<br/>"; 
+          $result_message .="Thank you for your cooperation!";
         }
 
         ?>
