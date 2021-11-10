@@ -1,7 +1,7 @@
 <?php
 
 // Session Start
-// session_start();
+session_start();
 
 // Form データが空の場合は終了
 if (empty($_POST)) {
