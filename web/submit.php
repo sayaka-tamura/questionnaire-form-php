@@ -1,7 +1,7 @@
 <?php
 
 // Session Start
-// session_start();
+session_start();
 
 if (empty($_SESSION)) {
   echo "Ended this process";
