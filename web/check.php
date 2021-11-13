@@ -36,8 +36,6 @@ require("template/head.php");
 <!DOCTYPE html>
 <html lang="en">
 
-<?php require("template/head.php"); ?>
-
 <body>
   <div class="bg-contact3" style="background-image: url('images/bg-01.jpg');">
     <div class="container-contact3">
