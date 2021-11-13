@@ -3,6 +3,9 @@
 // Session Start
 session_start();
 
+require("template/validation.php");
+my_csrf_token_check();
+
 // Form データが空の場合は終了
 if (empty($_POST)) {
   echo "Ended Process";
@@ -97,6 +100,7 @@ require("template/head.php");
               $class = "d-none";
             }
             ?>
+            <input type="hidden" name="csrf-token" value="<?php echo $_SESSION['csrf-token']; ?>">
             <input type="submit" value="Submit Answer" name="sub1" class="<?php echo $class; ?> contact3-form-btn float-left mr-3" />
 
             <?php
@@ -104,6 +108,7 @@ require("template/head.php");
             if (!empty($r) && (strpos($r, $h) !== false)) : // strpos()-> 特定の文字列を含むかをチェック方法
             ?>
 
+            <input type="hidden" name="csrf-token" value="<?php echo $_SESSION['csrf-token']; ?>">
             <input type="button" class="mt-3 contact3-form-btn" value="Go Back" onclick="location.href='<?= $r ?>'">
             
             <?php endif ?>

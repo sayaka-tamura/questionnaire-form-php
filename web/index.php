@@ -6,6 +6,10 @@
     if (isset($_POST['sub1'])) {
       // Session Start
       session_start();
+      
+      require("template/validation.php");
+      my_csrf_token_check();
+
     } else {
         // session_destroy();
         session_start();
@@ -13,6 +17,8 @@
         // To avoid Session Hijack
         session_regenerate_id(true);
 
+        // Generate csrf-token
+        $_SESSION['csrf-token'] = sha1(random_bytes(30));
     }
 
     require("template/head.php"); 
@@ -190,6 +196,8 @@
             </div>
 
             <div class="container-contact3-form-btn">
+              <input type="hidden" name="csrf-token" value="<?php echo $_SESSION['csrf-token']; ?>">
+
               <input type="submit" value="confirm" name="sub1"  class="contact3-form-btn">
             </div>
 

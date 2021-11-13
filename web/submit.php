@@ -3,10 +3,16 @@
 // Session Start
 session_start();
 
+require("template/validation.php");
+my_csrf_token_check();
+
 if (empty($_SESSION)) {
   echo "Ended this process";
   exit;
 }
+
+// Importing info for "Go Back Button"
+$ind = "index.php";
 
 //DB接続関数を dbconnet.php から呼び出して接続
 $db = parse_url($_SERVER['CLEARDB_DATABASE_URL']);
@@ -43,10 +49,12 @@ try {
         <?php
 
         // Sanitize
+        /**
         function h($str)
         {
           return htmlspecialchars($str, ENT_QUOTES, 'UTF-8');
         }
+        */
 
         // 必須入力値の取得、その後
         //SESSSION データを整形（前後にあるホワイトスペースを削除）してエスケープ処理      
@@ -70,6 +78,7 @@ try {
 
           // SQL の実行
           $stmt->execute();
+          
         } else if ($_SESSION['choice'] == "respond-to-a-survey") {
 
           $sql = "INSERT INTO answers (name, email, job, satisfaction, volume, exp_language, dm, message) VALUES (:name, :email, :job, :rate1, :rate2, :tec, :dm, :message)";
@@ -105,17 +114,20 @@ try {
         } else {
           $result_message = "データを追加しました。データ番号：" . $db->lastInsertId() . "<br/>"; 
           $result_message .="Thank you for your cooperation!";
+          
+          // Session End
+          session_destroy();
         }
 
         ?>
 
         <p class="text-white"><?php echo $result_message; ?></p>
 
-        <?php
-        require("template/footer.php");
+        <input type="hidden" name="csrf-token" value="<?php echo $_SESSION['csrf-token']; ?>">
+        <input type="button" class="mt-3 contact3-form-btn" value="Go Back" onclick="location.href='<?= $r ?>'">
 
-        // Session End
-        session_destroy();
+        <?php
+          require("template/footer.php");
         ?>
       </div>
     </div>

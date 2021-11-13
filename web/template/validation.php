@@ -152,4 +152,12 @@
       return $temp_array;
   }
 
+  function my_csrf_token_check() {
+      if (!isset($_POST['csrf-token']) || isset($_POST['csrf-token']) && !hash_equals($_POST['csrf-token'], $_SESSION['csrf-token'])) {
+          header('location: ../index.php');
+      } else {
+          $_SESSION['csrf-token'] = sha1(random_bytes(30));
+      }
+  }
+
 ?>
