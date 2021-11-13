@@ -16,7 +16,6 @@ if (empty($_POST)) {
 $h = $_SERVER['HTTP_HOST'];
 $r = $_SERVER['HTTP_REFERER'];
 
-require("template/validation.php");
 //POSTされたデータをチェック
 $_POST = checkInput($_POST);
 
@@ -29,12 +28,11 @@ $ar_rate = array(
   "1" => "Very Unsatisfied",
 );
 ?>
-<?php
-require("template/head.php");
-?>
 
 <!DOCTYPE html>
 <html lang="en">
+
+<?php require("template/head.php"); ?>
 
 <body>
   <div class="bg-contact3" style="background-image: url('images/bg-01.jpg');">
